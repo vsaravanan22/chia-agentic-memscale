@@ -36,17 +36,23 @@ def config_key(config):
                  ("partitions", "executors", "replication", "batch_size"))
 
 
-def launch_benchmark(project, directory, image, config, timeout_s=120, backend="perlmutter"):
+def launch_benchmark(project, directory, image, config, timeout_s=120, backend="perlmutter",
+                     workload="nwchem_water_6-31g_scf"):
     """Launch the harness. The overhead baseline uses this without the outer contract.
 
     The harness still performs its own scientific checks. Call validate_benchmark
     before accepting a result; the agent-facing runtime always does so.
     """
+    from workload.nwchem_benchmark import WATER_WORKLOAD, workload_definition, verify_workload_input
+    definition = workload_definition(workload)
+    input_path = Path(project) / "workload/inputs" / definition["input"]
+    if workload != WATER_WORKLOAD:
+        verify_workload_input(input_path, workload)
     directory = Path(directory)
     directory.mkdir()
     output = directory / "measurement.json"
     command = [sys.executable, str(Path(project) / "workload/nwchem_benchmark.py"),
-               "--input", str(Path(project) / "workload/inputs/water_check.nw"),
+               "--input", str(input_path),
                "--image", image, "--partitions", str(config["partitions"]),
                "--executors", str(config["executors"]),
                "--replication", str(config["replication"]),
@@ -55,6 +61,8 @@ def launch_benchmark(project, directory, image, config, timeout_s=120, backend="
                "--cpus-per-task", "1" if backend == "native" else "2",
                "--backend", backend, "--scratch-root", str(directory / "cases"),
                "--output", str(output)]
+    if workload != WATER_WORKLOAD:
+        command[2:2] = ["--workload", workload]
     started = time.monotonic()
     with (directory / "launcher.log").open("w") as stream:
         child = subprocess.Popen(command, cwd=project, stdout=stream,
@@ -77,13 +85,28 @@ def launch_benchmark(project, directory, image, config, timeout_s=120, backend="
             "launcher_elapsed_s": time.monotonic() - started}
 
 
-def validate_benchmark(directory, config, backend="perlmutter"):
+def validate_benchmark(directory, config, backend="perlmutter", workload="nwchem_water_6-31g_scf"):
     """Recheck measurement JSON and original SCF text; hash the accepted artifacts.
 
     Hashes detect edits relative to a preserved record. They are not signatures
     and cannot authenticate evidence if all records and hashes are rewritten.
     """
-    from workload.nwchem_benchmark import ENERGY
+    from workload.nwchem_benchmark import (ENERGY, WATER_WORKLOAD, C20_WORKLOAD,
+                                         workload_definition, verify_workload_input, c20_output_complete)
+    definition = workload_definition(workload)
+    reference, tolerance = definition["reference"], definition["tolerance"]
+    # Policy sessions retain exactly three water cases. The trusted calibration
+    # driver explicitly requests the C20 profile and a single-case configuration.
+    if workload == WATER_WORKLOAD:
+        expected_ids = {"p0-r0", "p1-r0", "p2-r0"}
+    else:
+        if (any(type(config.get(k)) is not int or config[k] not in (1, 2, 3)
+                for k in ("partitions", "executors", "batch_size"))
+                or type(config.get("replication")) is not int or config["replication"] != 1
+                or config.get("placement") != "single-node"):
+            raise ValueError("Invalid calibration configuration")
+        expected_ids = {f"p{p}-r0" for p in range(config["partitions"])}
+    count = len(expected_ids)
     started = time.perf_counter()
     directory = Path(directory)
     output = directory / "measurement.json"
@@ -91,26 +114,26 @@ def validate_benchmark(directory, config, backend="perlmutter"):
     metrics = data["aggregate"]
     cases = data["cases"]
     if (data["configuration"] != config or metrics["status"] != "success"
-            or metrics["cases_total"] != 3 or metrics["cases_completed"] != 3
-            or len(cases) != 3 or {c["case_id"] for c in cases} != {"p0-r0", "p1-r0", "p2-r0"}):
-        raise RuntimeError("Benchmark did not validate exactly the requested three cases")
+            or metrics["cases_total"] != count or metrics["cases_completed"] != count
+            or len(cases) != count or {c["case_id"] for c in cases} != expected_ids):
+        raise RuntimeError("Benchmark did not validate exactly the requested cases")
     for case in cases:
         energy = case.get("energy_hartree")
         if (case["passed"] is not True or type(case["returncode"]) is not int or case["returncode"] != 0
                 or type(energy) not in (int, float) or not math.isfinite(energy)
-                or abs(energy - (-75.983998)) >= 1e-5):
+                or abs(energy - reference) >= tolerance):
             raise RuntimeError("Scientific energy validation failed")
     for name in ("throughput_cases_per_s", "experiment_elapsed_s", "latency_mean_ms"):
         value = metrics[name]
         if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
             raise RuntimeError(f"Invalid measured {name}")
-    if data.get("backend") != backend or data.get("workload") != "nwchem_water_6-31g_scf":
+    if data.get("backend") != backend or data.get("workload") != workload:
         raise RuntimeError("Unexpected backend or workload")
     scientific = data.get("scientific_validation", {})
-    if scientific.get("reference_energy_hartree") != -75.983998 or scientific.get("tolerance_hartree") != 1e-5:
+    if scientific.get("reference_energy_hartree") != reference or scientific.get("tolerance_hartree") != tolerance:
         raise RuntimeError("Unexpected scientific reference or tolerance")
     rate, elapsed = metrics["throughput_cases_per_s"], metrics["experiment_elapsed_s"]
-    if abs(elapsed - 3 / rate) > .00051 + 1.6e-6 / rate ** 2:
+    if abs(elapsed - count / rate) > .00051 + (count / 3) * 1.6e-6 / rate ** 2:
         raise RuntimeError("Inconsistent throughput and elapsed time")
     artifacts = {"measurement.json": output.read_bytes()}
     for case in cases:
@@ -119,12 +142,21 @@ def validate_benchmark(directory, config, backend="perlmutter"):
         if not name.startswith("nwchem-" + case["case_id"] + "-") or directory.resolve() not in path.resolve().parents:
             raise RuntimeError("Invalid case output path")
         raw = path.read_bytes()
-        energies = ENERGY.findall(raw.decode("utf-8", errors="replace"))
+        text = raw.decode("utf-8", errors="replace")
+        energies = ENERGY.findall(text)
         energy = float(energies[-1].replace("D", "E").replace("d", "e")) if energies else float("nan")
-        if (not math.isfinite(energy) or abs(energy - (-75.983998)) >= 1e-5
+        if (not math.isfinite(energy) or abs(energy - reference) >= tolerance
                 or not math.isclose(energy, case["energy_hartree"], rel_tol=0, abs_tol=1e-10)):
             raise RuntimeError("Raw SCF output disagrees with scientific validation")
         artifacts[str(path.relative_to(directory))] = raw
+        if workload == C20_WORKLOAD:
+            if not c20_output_complete(text):
+                raise RuntimeError("Raw C20 output lacks the expected completed RHF calculation")
+            input_path = path.parent / definition["input"]
+            if directory.resolve() not in input_path.resolve().parents:
+                raise RuntimeError("Invalid case input path")
+            verify_workload_input(input_path, workload)
+            artifacts[str(input_path.relative_to(directory))] = input_path.read_bytes()
     validation_s = time.perf_counter() - started
     started = time.perf_counter()
     hashes = {name: hashlib.sha256(raw).hexdigest() for name, raw in artifacts.items()}
@@ -134,10 +166,15 @@ def validate_benchmark(directory, config, backend="perlmutter"):
             "verification_timings_s": {"validation": validation_s, "hashing": hashing_s}}
 
 
-def run_benchmark(project, directory, image, config, timeout_s=120, backend="perlmutter"):
+def run_benchmark(project, directory, image, config, timeout_s=120, backend="perlmutter",
+                  workload="nwchem_water_6-31g_scf"):
     started = time.monotonic()
-    launch_benchmark(project, directory, image, config, timeout_s, backend)
-    result = validate_benchmark(directory, config, backend)
+    if workload == "nwchem_water_6-31g_scf":
+        launch_benchmark(project, directory, image, config, timeout_s, backend)
+        result = validate_benchmark(directory, config, backend)
+    else:
+        launch_benchmark(project, directory, image, config, timeout_s, backend, workload)
+        result = validate_benchmark(directory, config, backend, workload)
     result["launcher_elapsed_s"] = round(time.monotonic() - started, 3)
     return result
 
