@@ -221,7 +221,8 @@ class CalibrationTests(unittest.TestCase):
     def test_worker_rejects_repeats_order_and_exhaustion(self):
         plan = runner.build_plan(runner.PROJECT, "a" * 64)
         worker = runner.CalibrationWorker(runner.PROJECT, self.root, plan)
-        with patch.object(runner, "run_benchmark", side_effect=RuntimeError("injected")) as launch:
+        with patch.object(runner, "run_benchmark", side_effect=RuntimeError("injected")) as launch, \
+                contextlib.redirect_stderr(io.StringIO()):
             with self.assertRaises(ValueError):
                 worker.execute("trial-0002")
             self.assertEqual(worker.execute("trial-0001")["status"], "failed")
@@ -272,6 +273,16 @@ class CalibrationTests(unittest.TestCase):
     def exercise_driver(self, mode="success"):
         plan = runner.build_plan(runner.PROJECT, "a" * 64)
         launches = Mock()
+        make_temp = tempfile.mkdtemp
+        def fake_init(**kwargs):
+            root = Path(kwargs["_temp_dir"])
+            logs = root / "session_synthetic/logs"
+            logs.mkdir(parents=True)
+            (logs / "raylet.err").write_text("Synthetic Ray startup diagnostic, not performance evidence.\n")
+            (logs / "gcs_server.out").write_text("Synthetic GCS diagnostic.\n")
+            (root / "session_latest").symlink_to(logs.parent, target_is_directory=True)
+            if mode == "ray_startup":
+                raise Exception("synthetic node registration failure")
         def fake_benchmark(project, directory, image, config, **kwargs):
             launches()
             if mode == "failure":
@@ -291,14 +302,16 @@ class CalibrationTests(unittest.TestCase):
                 if mode == "ray_timeout":
                     raise TimeoutError("synthetic Ray wait")
                 return {**self.worker.execute(trial), "worker_pid": os.getpid() + 1}
-        ray = SimpleNamespace(__version__="synthetic", init=Mock(), shutdown=Mock(), kill=Mock(),
-            remote=lambda **kwargs: lambda cls: SimpleNamespace(remote=lambda *args: Actor(cls(*args))),
+        ray = SimpleNamespace(__version__="synthetic", init=Mock(side_effect=fake_init), shutdown=Mock(), kill=Mock(),
+            remote=Mock(side_effect=lambda **kwargs: lambda cls: SimpleNamespace(remote=lambda *args: Actor(cls(*args)))),
             get=lambda result, **kwargs: result)
         with patch.dict("sys.modules", {"ray": ray}), \
                 patch.dict(os.environ, {"SLURM_JOB_ID": "999", "SLURM_NTASKS": "8", "SLURM_CPUS_PER_TASK": "2"}), \
                 patch("scripts.run_policy_confirmation.socket.gethostname", return_value="nid-synthetic"), \
                 patch.object(runner, "verify_image", side_effect=RuntimeError("image mismatch") if mode == "image" else None, return_value="a" * 64), \
-                patch.object(runner, "run_benchmark", side_effect=fake_benchmark), contextlib.redirect_stdout(io.StringIO()):
+                patch.object(runner.tempfile, "mkdtemp", side_effect=lambda **kwargs: make_temp(prefix="ray-", dir=self.root)), \
+                patch.object(runner, "run_benchmark", side_effect=fake_benchmark), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             directory, passed = runner.run_study(plan, self.root)
         return directory, passed, ray, launches
 
@@ -309,6 +322,38 @@ class CalibrationTests(unittest.TestCase):
         state = json.loads((directory / "state.json").read_text())
         self.assertEqual(state["validation"]["successful_trials"], 2)
         ray.kill.assert_called_once()
+        self.assertEqual(len(list((directory / "ray-logs").rglob("raylet.err"))), 1)
+
+    def test_startup_failure_preserves_ray_logs_and_traceback_without_launches(self):
+        directory, passed, ray, launches = self.exercise_driver("ray_startup")
+        self.assertFalse(passed)
+        launches.assert_not_called()
+        ray.remote.assert_not_called()
+        ray.shutdown.assert_called_once()
+        state = json.loads((directory / "state.json").read_text())
+        self.assertEqual(state["fatal_error_stage"], "ray_startup")
+        self.assertEqual(state["validation"]["attempted_trials"], 0)
+        self.assertEqual([r["status"] for r in state["attempts"]], ["not_started"] * 2)
+        self.assertIn("synthetic node registration failure", (directory / "failure.txt").read_text())
+        # Saved paths use the Ray session name directly, without its live sockets.
+        self.assertIn("Synthetic Ray", (directory / "ray-logs/session_synthetic/raylet.err").read_text())
+        report = json.loads((directory / "ray-diagnostics.json").read_text())
+        self.assertEqual(len(report["files"]), 2)
+        self.assertEqual(report["errors"], [])
+        provenance = json.loads((directory / "provenance.json").read_text())
+        self.assertEqual(provenance["ray_temp_dir"], ray.init.call_args.kwargs["_temp_dir"])
+
+    def test_ray_log_copy_failure_keeps_original_failure_and_completion_report(self):
+        with patch.object(runner.shutil, "copyfile", side_effect=OSError("synthetic disk failure")):
+            directory, passed, ray, launches = self.exercise_driver("ray_startup")
+        self.assertFalse(passed)
+        ray.shutdown.assert_called_once()
+        launches.assert_not_called()
+        state = json.loads((directory / "state.json").read_text())
+        self.assertEqual(state["fatal_error_stage"], "ray_startup")
+        self.assertEqual(len(state["ray_log_copy_errors"]), 2)
+        self.assertEqual(state["validation"]["attempted_trials"], 0)
+        self.assertFalse(json.loads((directory / "validation.json").read_text())["passed"])
 
     def test_driver_image_failure_launches_no_worker_or_workload(self):
         directory, passed, ray, launches = self.exercise_driver("image")
@@ -329,6 +374,8 @@ class CalibrationTests(unittest.TestCase):
             self.assertLessEqual(launches.call_count, 1)
             if mode in ("interrupt", "ray_timeout"):
                 self.assertIsNone(state["attempts"][0]["worker_elapsed_s"])
+            if mode == "failure":
+                self.assertIn("TimeoutExpired", (directory / "trial-0001/failure.txt").read_text())
 
 
 if __name__ == "__main__":

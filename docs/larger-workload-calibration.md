@@ -1,8 +1,8 @@
 # Larger-workload calibration: C20 bowl RHF/cc-pVDZ
 
-**Status: the first Perlmutter attempt timed out; no C20 case has yet passed
-scientific validation.** The output-preservation fix described below has offline
-test coverage and still needs a live run.
+**Status: no C20 case has yet passed scientific validation.** The first attempt
+timed out; the second failed during Ray startup before either trial began.
+The added startup diagnostics have offline coverage and need live verification.
 This is the first step toward the optional larger-workload evaluation. The
 existing water policy loop, published evidence, and scientific reference remain
 the water workflow. C20 is an explicit additional workload in the same NWChem
@@ -49,6 +49,45 @@ source hashes. It retains the same image, input, reference, resources, two-trial
 schedule and 600-second limit. Partial logs are diagnostic evidence and are never
 accepted as successful scientific measurements. A future change to the workload
 or budget requires another explicit protocol.
+
+## Second attempt and Ray startup diagnostics
+
+Job `60147818` on `nid005999` exited with Slurm status `FAILED`, code `1:0`,
+after 2 minutes 55 seconds. Under streamed-output plan
+`135ad5b2b6c5deeeb4bf7985c15a661ffe8ee524d5b714b196fc1a145f2c3b7f`,
+both trials remained `not_started`, with zero attempts and zero successes.
+The recorded session including cleanup was 93.671 seconds. Ray reported that
+GCS could not find the node during startup. This is a runtime startup failure;
+it provides no evidence about C20 convergence, energy or execution time.
+These observations come from the reported accounting, stderr and saved state.
+
+Previously the driver retained only the exception class, while Ray's detailed
+logs could remain on the compute node. The updated runner uses a fresh private
+directory under `/tmp` for each Ray instance, records its path in provenance,
+and copies available Ray system logs into the result session after shutdown.
+Short node-local paths avoid Unix socket path-length problems and isolate runs.
+No startup retry or increased timeout is introduced. The cause of the observed
+node-registration failure remains undetermined.
+
+The result session now includes:
+
+- `failure.txt`: the full driver exception traceback when a failure occurs.
+- `trial-*/failure.txt`: a worker exception traceback when a workload fails.
+- `ray-logs/session_*/`: copied raylet, GCS, dashboard, environment-agent and
+  monitor logs when present; live sockets and worker files are not copied.
+- `ray-diagnostics.json`: the copied-file list and any copy errors.
+- `fatal_error_stage` in `state.json`: image verification, Ray startup,
+  worker readiness or the trial identifier at failure.
+
+Diagnostics are separate from scientific result hashes. Their absence is not
+evidence of success; copy errors are retained and never suppress the original
+failure or cleanup. A hard kill may prevent final log copying. Total session
+time now includes this diagnostic export; trial timing boundaries are unchanged.
+Offline tests inject startup and copy failures and verify zero worker/workload
+launches, preserved errors, shutdown and final validation records.
+
+Retain both failed sessions and their frozen plans. Freeze the updated sources
+in `results/c20-calibration-ray-logs-plan.json` before another attempt.
 
 ## Fixed calibration protocol
 
@@ -101,27 +140,28 @@ git add -- README.md docs/larger-workload-calibration.md \
   tools/experiment_session.py scripts/run_workload_calibration.py \
   scripts/run_workload_calibration.sbatch tests/test_workload_calibration.py \
   tests/test_agent_session.py tests/test_native_backend.py tests/test_streamed_output.py \
+  tests/test_bounded_evaluation.py \
   provenance/c20-bowl &&
 git --no-pager diff --cached --check &&
-git commit -m "Preserve workload output across calibration timeouts"
+git commit -m "Preserve Ray startup diagnostics for C20 calibration"
 ```
 
 Create a new plan once; the command refuses to overwrite an existing plan:
 
 ```bash
 python scripts/run_workload_calibration.py plan \
-  --out results/c20-calibration-streamed-plan.json &&
+  --out results/c20-calibration-ray-logs-plan.json &&
 python scripts/run_workload_calibration.py check \
-  --plan results/c20-calibration-streamed-plan.json &&
-git add -f -- results/c20-calibration-streamed-plan.json &&
-git commit -m "Freeze C20 calibration with streamed output"
+  --plan results/c20-calibration-ray-logs-plan.json &&
+git add -f -- results/c20-calibration-ray-logs-plan.json &&
+git commit -m "Freeze C20 calibration with Ray startup diagnostics"
 ```
 
 Then submit:
 
 ```bash
 python scripts/run_workload_calibration.py submit \
-  --plan results/c20-calibration-streamed-plan.json
+  --plan results/c20-calibration-ray-logs-plan.json
 ```
 
 Submission and execution check that all frozen runtime/reference files and the

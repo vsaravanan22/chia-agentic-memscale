@@ -5,12 +5,15 @@ import json
 import math
 import os
 import platform
+import shutil
 import signal
 import socket
 import statistics
 import subprocess
 import sys
+import tempfile
 import time
+import traceback
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -31,6 +34,49 @@ RUNTIME_FILES = (
 )
 TRIAL_TIMEOUT = 600
 CONFIG = dict(partitions=1, executors=1, replication=1, batch_size=1, placement="single-node")
+RAY_DIAGNOSTIC_FILES = (
+    "raylet.out", "raylet.err", "gcs_server.out", "gcs_server.err",
+    "dashboard.log", "dashboard.out", "dashboard.err", "dashboard_agent.log",
+    "dashboard_agent.out", "dashboard_agent.err", "runtime_env_agent.log",
+    "runtime_env_agent.out", "runtime_env_agent.err", "monitor.log", "monitor.out", "monitor.err",
+)
+
+
+def save_exception(path, exc):
+    """Keep the traceback without locals; failure to write must not skip cleanup."""
+    detail = "".join(traceback.format_exception(type(exc), exc, exc.__traceback__))
+    try:
+        print(detail, file=sys.stderr, flush=True)
+    except OSError:
+        pass
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(detail)
+    except OSError as error:
+        return type(error).__name__
+    return None
+
+
+def preserve_ray_logs(root, directory):
+    """Copy this job's system logs before Slurm releases its compute node."""
+    report = {"ray_temp_dir": str(root) if root is not None else None, "files": [], "errors": []}
+    if root is not None:
+        for session in sorted(root.glob("session_*")):
+            logs = session / "logs"
+            if session.is_symlink() or not session.is_dir() or logs.is_symlink():
+                continue
+            for name in RAY_DIAGNOSTIC_FILES:
+                source = logs / name
+                if source.is_symlink() or not source.is_file():
+                    continue
+                target = directory / "ray-logs" / session.name / name
+                try:
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(source, target)
+                    report["files"].append(str(target.relative_to(directory)))
+                except OSError as exc:
+                    report["errors"].append({"file": name, "error_type": type(exc).__name__})
+    return report
 
 
 def protocol():
@@ -131,6 +177,9 @@ class CalibrationWorker:
                           timeout_s=TRIAL_TIMEOUT, backend="perlmutter", workload=C20_WORKLOAD), status="success")
         except Exception as exc:
             result.update(status="failed", error_type=type(exc).__name__)
+            diagnostic_error = save_exception(self.directory / trial_id / "failure.txt", exc)
+            if diagnostic_error:
+                result["diagnostic_error_type"] = diagnostic_error
         finally:
             result["worker_elapsed_s"] = time.perf_counter() - started
         return result
@@ -158,7 +207,8 @@ def run_study(plan, results_root, project=PROJECT):
         for trial in plan["trials"]]}
     write_json(directory / "provenance.json", provenance)
     write_json(directory / "state.json", state)
-    actor, started = None, time.monotonic()
+    actor, ray_temp, started = None, None, time.monotonic()
+    stage = "image_verification"
     old_handlers = {}
 
     def interrupted(signum, frame):
@@ -169,10 +219,21 @@ def run_study(plan, results_root, project=PROJECT):
     print("Session:", directory, flush=True)
     try:
         provenance["resolved_image_id"] = verify_image(plan["image_id"])
+        stage = "ray_startup"
+        # Short, private, node-local paths also avoid shared temp/socket collisions.
+        ray_temp = Path(tempfile.mkdtemp(prefix="chia-ray-", dir="/tmp"))
+        provenance["ray_temp_dir"] = str(ray_temp)
         write_json(directory / "provenance.json", provenance)
+        state["stage"] = stage
+        write_json(directory / "state.json", state)
+        print("Ray startup; temporary directory:", ray_temp, flush=True)
         ray.init(address="local", num_cpus=4, num_gpus=0, include_dashboard=False,
                  object_store_memory=256 * 1024 * 1024,
+                 _temp_dir=str(ray_temp),
                  runtime_env={"env_vars": {"PYTHONPATH": str(project) + os.pathsep + os.environ.get("PYTHONPATH", "")}})
+        stage = "worker_ready"
+        state["stage"] = stage
+        write_json(directory / "state.json", state)
         actor = ray.remote(num_cpus=1, max_restarts=0, max_task_retries=0)(CalibrationWorker).remote(str(project), str(directory), plan)
         worker = ray.get(actor.ready.remote(), timeout=60)
         if (type(worker.get("worker_pid")) is not int or worker["worker_pid"] == os.getpid()
@@ -182,6 +243,8 @@ def run_study(plan, results_root, project=PROJECT):
         provenance["worker"] = worker
         write_json(directory / "provenance.json", provenance)
         for record in state["attempts"]:
+            stage = record["trial_id"]
+            state["stage"] = stage
             record["status"] = "running"
             write_json(directory / "state.json", state)
             phase = time.perf_counter()
@@ -205,6 +268,10 @@ def run_study(plan, results_root, project=PROJECT):
             print(record["trial_id"], "validated success; harness seconds:", record["aggregate"]["experiment_elapsed_s"], flush=True)
     except BaseException as exc:
         state["fatal_error_type"] = type(exc).__name__
+        state["fatal_error_stage"] = stage
+        diagnostic_error = save_exception(directory / "failure.txt", exc)
+        if diagnostic_error:
+            state["diagnostic_error_type"] = diagnostic_error
     finally:
         try:
             if actor is not None:
@@ -212,7 +279,15 @@ def run_study(plan, results_root, project=PROJECT):
             ray.shutdown()
         except BaseException as exc:
             state["cleanup_error_type"] = type(exc).__name__
+            save_exception(directory / "cleanup-failure.txt", exc)
         finally:
+            try:
+                diagnostics = preserve_ray_logs(ray_temp, directory)
+                write_json(directory / "ray-diagnostics.json", diagnostics)
+                if diagnostics["errors"]:
+                    state["ray_log_copy_errors"] = diagnostics["errors"]
+            except OSError as exc:
+                state["ray_log_copy_error_type"] = type(exc).__name__
             passed = (not any(k in state for k in ("fatal_error_type", "cleanup_error_type"))
                       and all(r["status"] == "success" for r in state["attempts"]))
             state["validation"] = {
