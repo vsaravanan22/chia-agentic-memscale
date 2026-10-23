@@ -28,6 +28,13 @@ SYNTHETIC = """Synthetic unit-test output, NOT a scientific measurement.
 """
 
 
+def fake_process(output):
+    def run(command, **kwargs):
+        kwargs["stdout"].write(output.encode())
+        return Mock(returncode=0)
+    return run
+
+
 def c20_fixture(directory, text=SYNTHETIC):
     case_dir = directory / "cases/nwchem-p0-r0-synthetic"
     case_dir.mkdir(parents=True)
@@ -120,7 +127,7 @@ class CalibrationTests(unittest.TestCase):
                                mpi_tasks=2, cpus_per_task=2, image="synthetic")
         for output, passed in ((SYNTHETIC, True), (SYNTHETIC.replace("-756.702486554389", "-75.983998"), False),
                                (SYNTHETIC.split("Total times")[0], False)):
-            with patch("workload.nwchem_benchmark.subprocess.run", return_value=Mock(returncode=0, stdout=output, stderr="")):
+            with patch("workload.nwchem_benchmark.subprocess.run", side_effect=fake_process(output)):
                 self.assertEqual(run_case("p0-r0", 0, 0, args, self.root)["passed"], passed)
 
     def test_harness_cli_exports_c20_measurement_accepted_by_runtime(self):
@@ -132,7 +139,7 @@ class CalibrationTests(unittest.TestCase):
                 "--partitions", "1", "--executors", "1", "--replication", "1", "--batch-size", "1",
                 "--scratch-root", str(directory / "cases"), "--output", str(directory / "measurement.json")]
         with patch("sys.argv", args), contextlib.redirect_stdout(io.StringIO()), \
-                patch("workload.nwchem_benchmark.subprocess.run", return_value=Mock(returncode=0, stdout=SYNTHETIC, stderr="")), \
+                patch("workload.nwchem_benchmark.subprocess.run", side_effect=fake_process(SYNTHETIC)), \
                 patch("workload.nwchem_benchmark.time.perf_counter", side_effect=[0., 1., 2., 10.]):
             main()
         checked = validate_benchmark(directory, runner.CONFIG, workload=C20_WORKLOAD)
@@ -209,7 +216,7 @@ class CalibrationTests(unittest.TestCase):
         committed.assert_called_once_with(plan_path)
         cmd = submit.call_args.args[0]
         self.assertIn("--image=id:" + "a" * 64, cmd)
-        self.assertEqual(cmd[-2:], [str(plan_path), str(self.root)])
+        self.assertEqual(cmd[-2:], [str(plan_path.resolve()), str(self.root.resolve())])
 
     def test_worker_rejects_repeats_order_and_exhaustion(self):
         plan = runner.build_plan(runner.PROJECT, "a" * 64)

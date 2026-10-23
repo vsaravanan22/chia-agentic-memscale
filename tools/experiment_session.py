@@ -65,11 +65,20 @@ def launch_benchmark(project, directory, image, config, timeout_s=120, backend="
         command[2:2] = ["--workload", workload]
     started = time.monotonic()
     with (directory / "launcher.log").open("w") as stream:
+        stream.write(json.dumps({"event": "harness_launch", "command": command,
+                                 "timeout_s": timeout_s, "time_ns": time.time_ns()}) + "\n")
+        stream.flush()
         child = subprocess.Popen(command, cwd=project, stdout=stream,
                                  stderr=subprocess.STDOUT, start_new_session=True)
         try:
             returncode = child.wait(timeout=timeout_s)
-        except BaseException:
+        except BaseException as exc:
+            try:
+                stream.write(json.dumps({"event": "harness_wait_failed", "error_type": type(exc).__name__,
+                                         "wait_elapsed_s": time.monotonic() - started}) + "\n")
+                stream.flush()
+            except OSError:
+                pass  # A full/unavailable log filesystem must not skip teardown.
             try:
                 os.killpg(child.pid, signal.SIGTERM)
                 child.wait(timeout=10)
@@ -79,6 +88,8 @@ def launch_benchmark(project, directory, image, config, timeout_s=120, backend="
             except ProcessLookupError:
                 child.wait()
             raise
+        stream.write(json.dumps({"event": "harness_exit", "returncode": returncode,
+                                 "elapsed_s": time.monotonic() - started}) + "\n")
     if returncode != 0:
         raise RuntimeError(f"Benchmark exit {returncode}; inspect {directory / 'launcher.log'}")
     return {"measurement_file": str(output),

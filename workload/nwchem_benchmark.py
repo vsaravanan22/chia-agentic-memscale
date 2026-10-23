@@ -95,17 +95,25 @@ def run_case(case_id, partition, replica, args, scratch):
     environment = os.environ.copy()
     if cpu_ids is not None:
         environment.update(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1")
+    output_path = directory / "output.txt"
     start = time.perf_counter()
     try:
-        result = subprocess.run(command, cwd=directory, capture_output=True,
-                                text=True, env=environment)
+        (directory / "launch.json").write_text(json.dumps({
+            "case_id": case_id, "command": command,
+            "started_time_ns": time.time_ns(), "output_file": str(output_path),
+        }, indent=2) + "\n")
+        # Direct child file descriptors preserve emitted bytes if the harness
+        # is killed. PIPE/capture_output loses its in-memory buffer on timeout.
+        # NWChem/MPI may still buffer bytes that have not yet been emitted.
+        with output_path.open("wb", buffering=0) as stream:
+            result = subprocess.run(command, cwd=directory, stdout=stream,
+                                    stderr=subprocess.STDOUT, env=environment)
     finally:
         if cpu_ids is not None:
             args.cpu_slots.put(cpu_ids)
     latency_ms = (time.perf_counter() - start) * 1000
 
-    output = (result.stdout or "") + "\n" + (result.stderr or "")
-    (directory / "output.txt").write_text(output)
+    output = output_path.read_text(errors="replace")
 
     energies = ENERGY.findall(output)
     energy = None

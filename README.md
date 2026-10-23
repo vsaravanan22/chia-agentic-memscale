@@ -12,7 +12,7 @@ The repository slug and `MemScaleTool` API name are retained for compatibility. 
 
 Reanalysis of the two published comparison jobs finds **three Gemini wins and three random wins**, reported by job block. Relative to the new sweep's empirical best configuration, Gemini visited and selected E3/B3 in 0/6 historical sessions and random in 2/6; the two random hits repeat seed 103 across the two jobs. These are retrospective configuration comparisons, not six independent allocation replicates. [Confirmation means, spread, and raw points](results/oct28-existing-evidence/confirmation.png) are also available.
 
-A [bounded C20 RHF/cc-pVDZ calibration](docs/larger-workload-calibration.md) is implemented for the optional larger-workload evaluation. It reuses the NWChem launcher with a pinned upstream input and SCF reference. Perlmutter validation and larger-workload policy comparisons are pending.
+A [bounded C20 RHF/cc-pVDZ calibration](docs/larger-workload-calibration.md) is implemented for the optional larger-workload evaluation. Its first Perlmutter attempt, job `60082065`, hit the 600-second harness limit in trial 1; trial 2 remained unstarted. The harness now preserves emitted output during execution to diagnose the timeout. No C20 case has yet passed scientific validation, and larger-workload policy comparisons remain pending.
 
 **The autonomous loop has been validated on NERSC Perlmutter with NWChem 7.2.0.** Job `58656462` completed on September 20, 2026, with exit code `0:0`. Gemini selected four previously untested configurations, and all four experiments passed scientific validation. This is a small water-SCF orchestration demonstration; memory optimization and larger-workload scaling remain research goals.
 
