@@ -274,8 +274,9 @@ class CalibrationTests(unittest.TestCase):
         plan = runner.build_plan(runner.PROJECT, "a" * 64)
         launches = Mock()
         make_temp = tempfile.mkdtemp
-        def fake_init(**kwargs):
-            root = Path(kwargs["_temp_dir"])
+        def fake_cli(launcher, log, timeout, ray_tmp):
+            root = ray_tmp
+            write_json(log.parent / "port-forwarding.json", {"synthetic": True})
             logs = root / "session_synthetic/logs"
             logs.mkdir(parents=True)
             (logs / "raylet.err").write_text("Synthetic Ray startup diagnostic, not performance evidence.\n")
@@ -302,10 +303,21 @@ class CalibrationTests(unittest.TestCase):
                 if mode == "ray_timeout":
                     raise TimeoutError("synthetic Ray wait")
                 return {**self.worker.execute(trial), "worker_pid": os.getpid() + 1}
-        ray = SimpleNamespace(__version__="synthetic", init=Mock(side_effect=fake_init), shutdown=Mock(), kill=Mock(),
+        ray = SimpleNamespace(__version__="synthetic", init=Mock(), shutdown=Mock(), kill=Mock(),
             remote=Mock(side_effect=lambda **kwargs: lambda cls: SimpleNamespace(remote=lambda *args: Actor(cls(*args)))),
             get=lambda result, **kwargs: result)
-        with patch.dict("sys.modules", {"ray": ray}), \
+        if mode == "cleanup":
+            ray.kill.side_effect = RuntimeError("synthetic actor cleanup failure")
+        launcher = Mock()
+        launcher.poll.return_value = None
+        with patch.object(runner.ray_startup, "preflight", return_value=(ray, {"synthetic": True})), \
+                patch.object(runner.ray_startup, "importlib", SimpleNamespace(import_module=lambda name: SimpleNamespace(get_node_ip_address=lambda: "127.0.0.1"))), \
+                patch.object(runner.ray_startup, "wait_for_cli", side_effect=fake_cli), \
+                patch.object(runner.ray_startup, "wait_for_agents", side_effect=TimeoutError("synthetic agents") if mode == "agents" else None), \
+                patch.object(runner.ray_startup, "stop_owned_group") as stop, \
+                patch.object(runner.subprocess, "check_output", return_value="synthetic-commit"), \
+                patch.object(runner.subprocess, "Popen", return_value=launcher), \
+                patch.dict("sys.modules", {"ray": ray}), \
                 patch.dict(os.environ, {"SLURM_JOB_ID": "999", "SLURM_NTASKS": "8", "SLURM_CPUS_PER_TASK": "2"}), \
                 patch("scripts.run_policy_confirmation.socket.gethostname", return_value="nid-synthetic"), \
                 patch.object(runner, "verify_image", side_effect=RuntimeError("image mismatch") if mode == "image" else None, return_value="a" * 64), \
@@ -313,6 +325,9 @@ class CalibrationTests(unittest.TestCase):
                 patch.object(runner, "run_benchmark", side_effect=fake_benchmark), \
                 contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             directory, passed = runner.run_study(plan, self.root)
+        stop.assert_called_once_with(None if mode == "image" else launcher)
+        if mode not in ("image", "ray_startup", "agents"):
+            self.assertNotEqual(ray.init.call_args.kwargs["address"], "local")
         return directory, passed, ray, launches
 
     def test_driver_completes_two_trials_without_model_calls(self):
@@ -323,6 +338,32 @@ class CalibrationTests(unittest.TestCase):
         self.assertEqual(state["validation"]["successful_trials"], 2)
         ray.kill.assert_called_once()
         self.assertEqual(len(list((directory / "ray-logs").rglob("raylet.err"))), 1)
+
+    def test_agent_readiness_failure_launches_no_worker_and_still_cleans_up(self):
+        directory, passed, ray, launches = self.exercise_driver("agents")
+        self.assertFalse(passed)
+        ray.init.assert_not_called()
+        ray.remote.assert_not_called()
+        launches.assert_not_called()
+        state = json.loads((directory / "state.json").read_text())
+        self.assertEqual(state["validation"]["attempted_trials"], 0)
+
+    def test_actor_cleanup_failure_still_shuts_driver_and_owned_launcher(self):
+        directory, passed, ray, launches = self.exercise_driver("cleanup")
+        self.assertFalse(passed)
+        self.assertEqual(launches.call_count, 2)
+        ray.shutdown.assert_called_once()
+        state = json.loads((directory / "state.json").read_text())
+        self.assertEqual(state["cleanup_errors"][0]["component"], "actor")
+
+    def test_forwarding_helpers_are_part_of_frozen_runtime(self):
+        plan = runner.build_plan(runner.PROJECT, "a" * 64)
+        for name in ("scripts/check_ray_agent_ports.py", "scripts/ray_port_forwarding.py"):
+            changed = copy.deepcopy(plan)
+            changed["runtime_sha256"][name] = "0" * 64
+            changed["plan_sha256"] = runner.plan_digest(changed)
+            with self.assertRaisesRegex(ValueError, "Source changed"):
+                runner.verify_inputs(changed, runner.PROJECT)
 
     def test_startup_failure_preserves_ray_logs_and_traceback_without_launches(self):
         directory, passed, ray, launches = self.exercise_driver("ray_startup")
@@ -341,7 +382,8 @@ class CalibrationTests(unittest.TestCase):
         self.assertEqual(len(report["files"]), 2)
         self.assertEqual(report["errors"], [])
         provenance = json.loads((directory / "provenance.json").read_text())
-        self.assertEqual(provenance["ray_temp_dir"], ray.init.call_args.kwargs["_temp_dir"])
+        self.assertTrue(provenance["ray_temp_dir"])
+        ray.init.assert_not_called()
 
     def test_ray_log_copy_failure_keeps_original_failure_and_completion_report(self):
         with patch.object(runner.shutil, "copyfile", side_effect=OSError("synthetic disk failure")):

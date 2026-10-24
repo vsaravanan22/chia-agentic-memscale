@@ -146,9 +146,11 @@ def preflight():
 
 
 def run_cli(cli_args, record):
+    cpus = int(os.environ.get("SLURM_CPUS_PER_TASK", "0"))
+    tasks = int(os.environ.get("SLURM_NTASKS", "0"))
     if (not os.environ.get("SLURM_JOB_ID", "").isdigit()
             or not socket.gethostname().startswith("nid")
-            or int(os.environ.get("SLURM_CPUS_PER_TASK", "0")) < 4):
+            or not (cpus >= 4 or (tasks >= 8 and cpus >= 2))):
         raise RuntimeError("Use the diagnostic batch script on a Perlmutter CPU node.")
     if not cli_args or cli_args[0] != "start" or not {"--head", "--block"} <= set(cli_args):
         raise ValueError("Only a blocking head-node launch is supported.")

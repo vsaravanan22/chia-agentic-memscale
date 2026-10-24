@@ -2,7 +2,7 @@
 
 **Status: no C20 case has yet passed scientific validation.** The first attempt
 timed out; the second failed during Ray startup before either trial began.
-The added startup diagnostics have offline coverage and need live verification.
+The corrected startup diagnostic passed in job `60193624`; C20 itself remains unvalidated.
 This is the first step toward the optional larger-workload evaluation. The
 existing water policy loop, published evidence, and scientific reference remain
 the water workflow. C20 is an explicit additional workload in the same NWChem
@@ -66,7 +66,7 @@ logs could remain on the compute node. The updated runner uses a fresh private
 directory under `/tmp` for each Ray instance, records its path in provenance,
 and copies available Ray system logs into the result session after shutdown.
 Short node-local paths avoid Unix socket path-length problems and isolate runs.
-No startup retry or increased timeout is introduced. The cause of the observed
+At that stage, no startup retry or increased timeout was introduced. The cause of the observed
 node-registration failure remains undetermined.
 
 The result session now includes:
@@ -101,7 +101,7 @@ in `results/c20-calibration-ray-logs-plan.json` before another attempt.
 | Scientific acceptance | Exact input hash, zero exit code, expected 280-function/20-atom RHF output, one final SCF energy within tolerance, normal end marker |
 | Per-trial timeout | 600 seconds for the harness; Ray wait allows 60 additional seconds for teardown/return |
 | Allocation | One CPU node, eight tasks, two CPUs/task, 30-minute Slurm limit |
-| Driver limit | 27 minutes, followed by a 30-second kill grace period |
+| Driver limit | 29 minutes, followed by a 30-second kill grace period, within the 30-minute allocation |
 | Warmup | None discarded; report both first and second measurements |
 | Models/policies | No Gemini requests and no policy-search decisions |
 
@@ -217,3 +217,37 @@ scientific/launcher output before proposing a new workload or budget. Do not
 silently relax the tolerance or discard the first run. Historical frozen water
 plans deliberately refuse resubmission after runtime source changes; their
 published evidence remains auditable from its saved source snapshots.
+
+## Verified startup integration (job 60193624)
+
+The Ray-only diagnostic completed on `nid004171` with a separate worker and
+no cleanup errors. It confirmed the missing dashboard HTTP-port forwarding
+correction described in [ray-port-forwarding.md](ray-port-forwarding.md).
+CLI startup took 118.928 seconds, agent readiness 48.085 seconds, and its
+worker probe 87.520 seconds. This is infrastructure evidence, not C20 evidence.
+
+The C20 runner now uses that same owned CLI process, explicit ports and
+process-local forwarding helper. Both helper sources are hashed into the plan,
+required in HEAD before submission, and copied into each result directory.
+The helper accepts the existing C20 allocation of eight tasks with two CPUs
+per task, in addition to the diagnostic's four-or-more CPUs per task.
+
+Startup permits 180 seconds for CLI readiness, 90 for agent ports, and 120 for
+the calibration actor's ready response. The longer actor readiness limit
+accommodates the observed 87.520-second worker probe. The outer driver limit
+is now 29 minutes; the allocation remains 30 minutes. Both scientific trials
+retain their 600-second harness limit and 660-second Ray wait. There are no
+automatic retries or changes to the scientific input, image, MPI layout,
+reference energy, or tolerance.
+
+The driver records the CLI command, ports, forwarding check and startup phase
+times in provenance, as well as `ray-start.log` and `port-forwarding.json`.
+All startup failures leave trials unstarted. Actor, driver, and owned-launcher
+cleanup are each attempted, even if another cleanup operation fails.
+
+After applying and testing the integration, commit its sources, then create a
+NEW plan at `results/c20-calibration-forwarded-plan.json`. Old plans remain
+historical records and cannot be submitted against the changed sources.
+Use the same plan/check/submit commands above with the new filename. Preflight
+now also exercises the installed Ray command builder without launching any
+process. A successful future C20 run still requires scientific audit.

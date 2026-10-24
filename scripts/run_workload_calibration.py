@@ -23,10 +23,12 @@ if str(PROJECT) not in sys.path:
 from scripts.run_policy_confirmation import digest, plan_digest, require_compute_node, verify_image, IMAGE_ID
 from tools.experiment_session import run_benchmark, validate_benchmark, write_json
 from workload.nwchem_benchmark import C20_WORKLOAD, ENERGY, workload_definition, verify_workload_input
+from scripts import check_ray_agent_ports as ray_startup
 
 INPUT = "workload/inputs/c20_bowl_scf.nw"
 RUNTIME_FILES = (
     "scripts/run_workload_calibration.py", "scripts/run_workload_calibration.sbatch",
+    "scripts/check_ray_agent_ports.py", "scripts/ray_port_forwarding.py",
     "tools/experiment_session.py", "workload/nwchem_benchmark.py", INPUT,
     "scripts/run_policy_confirmation.py", "scripts/analyze_policy_comparison.py", "tools/policy_costs.py",
     "provenance/c20-bowl/reference.json", "provenance/c20-bowl/upstream.nw",
@@ -84,6 +86,8 @@ def protocol():
     return {"schema_version": 1, "kind": "c20-calibration", "backend": "perlmutter",
             "workload": C20_WORKLOAD, "trial_timeout_s": TRIAL_TIMEOUT,
             "mpi_tasks": 2, "cpus_per_task": 2, "warmup_trials": 0,
+            "ray_startup": {"mode": "explicit-ports-with-forwarding", "registration_wait_s": 120,
+                            "cli_timeout_s": 180, "agent_timeout_s": 90, "worker_ready_timeout_s": 120},
             "reference_energy_hartree": definition["reference"],
             "tolerance_hartree": definition["tolerance"],
             "trials": [{"trial_id": f"trial-{i:04d}", "configuration": dict(CONFIG)} for i in (1, 2)]}
@@ -207,7 +211,7 @@ def run_study(plan, results_root, project=PROJECT):
         for trial in plan["trials"]]}
     write_json(directory / "provenance.json", provenance)
     write_json(directory / "state.json", state)
-    actor, ray_temp, started = None, None, time.monotonic()
+    actor, launcher, ray_temp, started = None, None, None, time.monotonic()
     stage = "image_verification"
     old_handlers = {}
 
@@ -227,15 +231,35 @@ def run_study(plan, results_root, project=PROJECT):
         state["stage"] = stage
         write_json(directory / "state.json", state)
         print("Ray startup; temporary directory:", ray_temp, flush=True)
-        ray.init(address="local", num_cpus=4, num_gpus=0, include_dashboard=False,
-                 object_store_memory=256 * 1024 * 1024,
-                 _temp_dir=str(ray_temp),
+        os.environ["RAY_raylet_start_wait_time_s"] = "120"
+        _, provenance["port_forwarding_preflight"] = ray_startup.preflight()
+        ip = ray_startup.importlib.import_module("ray._private.services").get_node_ip_address()
+        ports = ray_startup.select_ports()
+        address = ip + ":" + str(ports["--port"])
+        command = ray_startup.cli_command(ray_temp, ip, ports, directory / "port-forwarding.json")
+        provenance.update(ray_address=address, ray_ports=ports, ray_command=command)
+        write_json(directory / "provenance.json", provenance)
+        phase = time.monotonic()
+        with (directory / "ray-start.log").open("w") as output:
+            launcher = subprocess.Popen(command, stdout=output, stderr=subprocess.STDOUT,
+                                        start_new_session=True, cwd=project)
+        ray_startup.wait_for_cli(launcher, directory / "ray-start.log", timeout=180, ray_tmp=ray_temp)
+        provenance["ray_cli_startup_s"] = time.monotonic() - phase
+        phase = time.monotonic()
+        ray_startup.wait_for_agents(launcher, ip, ports, timeout=90)
+        provenance["ray_agent_readiness_s"] = time.monotonic() - phase
+        provenance["port_forwarding"] = json.loads((directory / "port-forwarding.json").read_text())
+        write_json(directory / "provenance.json", provenance)
+        print("Ray CLI and agent ports ready; connecting calibration worker...", flush=True)
+        ray.init(address=address,
                  runtime_env={"env_vars": {"PYTHONPATH": str(project) + os.pathsep + os.environ.get("PYTHONPATH", "")}})
         stage = "worker_ready"
         state["stage"] = stage
         write_json(directory / "state.json", state)
         actor = ray.remote(num_cpus=1, max_restarts=0, max_task_retries=0)(CalibrationWorker).remote(str(project), str(directory), plan)
-        worker = ray.get(actor.ready.remote(), timeout=60)
+        phase = time.monotonic()
+        worker = ray.get(actor.ready.remote(), timeout=120)
+        provenance["ray_worker_ready_s"] = time.monotonic() - phase
         if (type(worker.get("worker_pid")) is not int or worker["worker_pid"] == os.getpid()
                 or worker.get("hostname") != provenance["hostname"]
                 or worker.get("source_sha256") != plan["runtime_sha256"]):
@@ -243,6 +267,8 @@ def run_study(plan, results_root, project=PROJECT):
         provenance["worker"] = worker
         write_json(directory / "provenance.json", provenance)
         for record in state["attempts"]:
+            if launcher.poll() is not None:
+                raise RuntimeError("Owned Ray launcher exited before the next trial")
             stage = record["trial_id"]
             state["stage"] = stage
             record["status"] = "running"
@@ -274,12 +300,15 @@ def run_study(plan, results_root, project=PROJECT):
             state["diagnostic_error_type"] = diagnostic_error
     finally:
         try:
-            if actor is not None:
-                ray.kill(actor)
-            ray.shutdown()
-        except BaseException as exc:
-            state["cleanup_error_type"] = type(exc).__name__
-            save_exception(directory / "cleanup-failure.txt", exc)
+            for label, action in (("actor", lambda: ray.kill(actor) if actor is not None else None),
+                                  ("driver", ray.shutdown),
+                                  ("launcher", lambda: ray_startup.stop_owned_group(launcher))):
+                try:
+                    action()
+                except BaseException as exc:
+                    state["cleanup_error_type"] = type(exc).__name__
+                    state.setdefault("cleanup_errors", []).append({"component": label, "error_type": type(exc).__name__})
+                    save_exception(directory / ("cleanup-" + label + "-failure.txt"), exc)
         finally:
             try:
                 diagnostics = preserve_ray_logs(ray_temp, directory)
@@ -374,6 +403,7 @@ def preflight():
     from ray import cloudpickle
     if ray.is_initialized():
         raise ValueError("Run preflight in a fresh Python process")
+    _, forwarding = ray_startup.preflight()
     plan = build_plan(PROJECT, (PROJECT / "provenance/nwchem-image-id.txt").read_text().strip())
     ray.remote(num_cpus=1, max_restarts=0, max_task_retries=0)(CalibrationWorker)
     worker = CalibrationWorker(str(PROJECT), str(PROJECT / "results"), plan)
@@ -382,7 +412,8 @@ def preflight():
         raise ValueError("Serialization or no-worker preflight invariant failed")
     print("PASS: C20 reference, input, Ray options and serialization; no worker, workload or API request launched")
     print(json.dumps({"python": platform.python_version(), "ray": ray.__version__,
-                      "planned_trials": 2, "trial_timeout_s": TRIAL_TIMEOUT}))
+                      "planned_trials": 2, "trial_timeout_s": TRIAL_TIMEOUT,
+                      "port_forwarding": forwarding}))
 
 
 def main():

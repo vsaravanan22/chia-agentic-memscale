@@ -5,6 +5,7 @@ import subprocess
 import tempfile
 from types import SimpleNamespace
 import unittest
+from contextlib import nullcontext
 from unittest.mock import Mock, patch
 
 from scripts import ray_port_forwarding as fix
@@ -92,6 +93,23 @@ class ForwardingTests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 fix.run_cli(["start", "--head", "--block"], Path("unused.json"))
             load.assert_not_called()
+
+    def test_c20_allocation_is_accepted_and_smaller_allocation_rejected(self):
+        cli = Mock()
+        modules = {"ray": SimpleNamespace(__version__="2.54.0"),
+                   "ray._private.services": SimpleNamespace(),
+                   "ray.scripts.scripts": SimpleNamespace(cli=cli)}
+        args = ["start", "--head", "--block"] + [
+            key + "=" + str(self.ports[value]) for key, value in fix.PORT_MAP.items()]
+        with patch.dict(os.environ, {"SLURM_JOB_ID": "123", "SLURM_NTASKS": "8", "SLURM_CPUS_PER_TASK": "2"}), \
+                patch.object(fix.socket, "gethostname", return_value="nid-test"), \
+                patch.object(fix.importlib, "import_module", side_effect=modules.__getitem__), \
+                patch.object(fix, "forwarded_launches", return_value=nullcontext()):
+            fix.run_cli(args, Path("unused.json"))
+            cli.assert_called_once_with(args=args, prog_name="ray")
+            with patch.dict(os.environ, {"SLURM_NTASKS": "1"}):
+                with self.assertRaises(RuntimeError):
+                    fix.run_cli(args, Path("unused.json"))
 
 
 if __name__ == "__main__":
