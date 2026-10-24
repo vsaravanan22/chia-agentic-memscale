@@ -4,6 +4,8 @@ import copy
 import io
 import json
 import os
+import re
+import shlex
 import shutil
 import subprocess
 import tempfile
@@ -129,6 +131,37 @@ class CalibrationTests(unittest.TestCase):
                                (SYNTHETIC.split("Total times")[0], False)):
             with patch("workload.nwchem_benchmark.subprocess.run", side_effect=fake_process(output)):
                 self.assertEqual(run_case("p0-r0", 0, 0, args, self.root)["passed"], passed)
+
+    def test_partial_iteration_near_reference_cannot_be_accepted_as_final_result(self):
+        # Reproduce the shape of the timeout output, without final SCF/end markers.
+        partial = """Synthetic partial output; NOT a scientific measurement.
+ functions = 280
+ atoms = 20
+ wavefunction = RHF
+ iter energy gnorm gmax time
+ 5 -756.7024865534 6.86D-05 1.02D-05 541.3
+ srun: Job step aborted
+"""
+        directory = self.root / "partial"
+        c20_fixture(directory, partial)  # Even a claimed successful measurement must fail raw audit.
+        self.assertFalse(c20_output_complete(partial))
+        with self.assertRaises(RuntimeError):
+            validate_benchmark(directory, runner.CONFIG, workload=C20_WORKLOAD)
+
+    def test_batch_limits_cover_trial_waits_startup_and_cleanup(self):
+        plan = runner.build_plan(runner.PROJECT, "a" * 64)
+        script = (runner.PROJECT / "scripts/run_workload_calibration.sbatch").read_text()
+        wall = re.search(r"^#SBATCH --time=(\d+):(\d+):(\d+)$", script, re.M)
+        allocation_s = sum(int(v) * factor for v, factor in zip(wall.groups(), (3600, 60, 1)))
+        command = shlex.split(next(line for line in script.splitlines() if line.startswith("timeout "))[:-1])
+        driver_s = int(command[3][:-1]) * 60
+        kill_grace_s = int(command[2].split("=")[1][:-1])
+        startup = plan["ray_startup"]
+        bounded_waits_s = (len(plan["trials"]) * (plan["trial_timeout_s"] + 60)
+                           + sum(startup[k] for k in ("cli_timeout_s", "agent_timeout_s", "worker_ready_timeout_s")))
+        self.assertGreaterEqual(driver_s, bounded_waits_s + 120)
+        self.assertLess(driver_s + kill_grace_s, allocation_s)
+        self.assertIn("#SBATCH --qos=regular", script)
 
     def test_harness_cli_exports_c20_measurement_accepted_by_runtime(self):
         from workload.nwchem_benchmark import main
@@ -286,8 +319,9 @@ class CalibrationTests(unittest.TestCase):
                 raise Exception("synthetic node registration failure")
         def fake_benchmark(project, directory, image, config, **kwargs):
             launches()
+            self.assertEqual(kwargs["timeout_s"], plan["trial_timeout_s"])
             if mode == "failure":
-                raise subprocess.TimeoutExpired("synthetic", 600)
+                raise subprocess.TimeoutExpired("synthetic", kwargs["timeout_s"])
             c20_fixture(Path(directory))
             return {**validate_benchmark(directory, config, workload=C20_WORKLOAD), "launcher_elapsed_s": 10.}
         class Actor:
@@ -305,7 +339,7 @@ class CalibrationTests(unittest.TestCase):
                 return {**self.worker.execute(trial), "worker_pid": os.getpid() + 1}
         ray = SimpleNamespace(__version__="synthetic", init=Mock(), shutdown=Mock(), kill=Mock(),
             remote=Mock(side_effect=lambda **kwargs: lambda cls: SimpleNamespace(remote=lambda *args: Actor(cls(*args)))),
-            get=lambda result, **kwargs: result)
+            get=Mock(side_effect=lambda result, **kwargs: result))
         if mode == "cleanup":
             ray.kill.side_effect = RuntimeError("synthetic actor cleanup failure")
         launcher = Mock()
@@ -334,6 +368,8 @@ class CalibrationTests(unittest.TestCase):
         directory, passed, ray, launches = self.exercise_driver()
         self.assertTrue(passed)
         self.assertEqual(launches.call_count, 2)
+        self.assertEqual([call.kwargs["timeout"] for call in ray.get.call_args_list],
+                         [120, runner.TRIAL_TIMEOUT + 60, runner.TRIAL_TIMEOUT + 60])
         state = json.loads((directory / "state.json").read_text())
         self.assertEqual(state["validation"]["successful_trials"], 2)
         ray.kill.assert_called_once()

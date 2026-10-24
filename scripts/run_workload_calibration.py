@@ -34,7 +34,7 @@ RUNTIME_FILES = (
     "provenance/c20-bowl/reference.json", "provenance/c20-bowl/upstream.nw",
     "provenance/c20-bowl/upstream.out", "provenance/c20-bowl/LICENSE.TXT",
 )
-TRIAL_TIMEOUT = 600
+TRIAL_TIMEOUT = 1800
 CONFIG = dict(partitions=1, executors=1, replication=1, batch_size=1, placement="single-node")
 RAY_DIAGNOSTIC_FILES = (
     "raylet.out", "raylet.err", "gcs_server.out", "gcs_server.err",
@@ -439,7 +439,7 @@ def main():
             with args.out.open("x") as stream:
                 json.dump(plan, stream, indent=2, allow_nan=False)
                 stream.write("\n")
-            print("Frozen calibration: two single-case trials, no discarded warmup; 600s limit per trial")
+            print(f"Frozen calibration: two single-case trials, no discarded warmup; {TRIAL_TIMEOUT}s limit per trial")
             print("SHA256:", plan["plan_sha256"])
         elif args.command == "audit":
             report = audit(args.session)

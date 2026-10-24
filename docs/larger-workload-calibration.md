@@ -99,9 +99,9 @@ in `results/c20-calibration-ray-logs-plan.json` before another attempt.
 | Execution | One Ray actor; no automatic task/actor retries |
 | Image | Full Shifter ID from `provenance/nwchem-image-id.txt`, verified inside Shifter |
 | Scientific acceptance | Exact input hash, zero exit code, expected 280-function/20-atom RHF output, one final SCF energy within tolerance, normal end marker |
-| Per-trial timeout | 600 seconds for the harness; Ray wait allows 60 additional seconds for teardown/return |
-| Allocation | One CPU node, eight tasks, two CPUs/task, 30-minute Slurm limit |
-| Driver limit | 29 minutes, followed by a 30-second kill grace period, within the 30-minute allocation |
+| Per-trial timeout | 1800 seconds for the harness; Ray wait allows 60 additional seconds for teardown/return |
+| Allocation | One CPU node, eight tasks, two CPUs/task, regular QoS, 75-minute Slurm limit |
+| Driver limit | 73 minutes, followed by a 30-second kill grace period, within the 75-minute allocation |
 | Warmup | None discarded; report both first and second measurements |
 | Models/policies | No Gemini requests and no policy-search decisions |
 
@@ -121,7 +121,7 @@ a workload ranking, policy advantage, stable variance, or decision-loop overhead
 
 ## Install checks and freeze before submission
 
-Run these checks from the repository root in the `chia-memscale` environment:
+Run checks from the repository root in the `chia-memscale` environment:
 
 ```bash
 TMPDIR="$PWD/results" python -m unittest discover -s tests -p 'test_*.py' -q &&
@@ -129,39 +129,34 @@ python scripts/run_workload_calibration.py preflight &&
 bash -n scripts/run_workload_calibration.sbatch
 ```
 
-Preflight uses the installed Ray package to verify actor options and
-serialization. It starts no Ray worker, scientific workload, or network request.
-No Gemini key is needed. Review the `--account=m5289` batch directive for your
-allocation before committing. Commit the implementation and upstream reference:
+Preflight checks the installed Ray command builder, actor options and serialization;
+it launches no worker, workload or network request. No Gemini key is needed.
+The account remains `m5289`. Commit the budget change before creating its plan:
 
 ```bash
 git add -- README.md docs/larger-workload-calibration.md \
-  workload/nwchem_benchmark.py workload/inputs/c20_bowl_scf.nw \
-  tools/experiment_session.py scripts/run_workload_calibration.py \
-  scripts/run_workload_calibration.sbatch tests/test_workload_calibration.py \
-  tests/test_agent_session.py tests/test_native_backend.py tests/test_streamed_output.py \
-  tests/test_bounded_evaluation.py \
-  provenance/c20-bowl &&
-git --no-pager diff --cached --check &&
-git commit -m "Preserve Ray startup diagnostics for C20 calibration"
+  scripts/run_workload_calibration.py scripts/run_workload_calibration.sbatch \
+  tests/test_workload_calibration.py &&
+git diff --cached --check &&
+git commit -m "Extend C20 calibration budget after observed SCF timeout"
 ```
 
-Create a new plan once; the command refuses to overwrite an existing plan:
+Create a new plan once; existing plans are never overwritten:
 
 ```bash
 python scripts/run_workload_calibration.py plan \
-  --out results/c20-calibration-ray-logs-plan.json &&
+  --out results/c20-calibration-1800s-plan.json &&
 python scripts/run_workload_calibration.py check \
-  --plan results/c20-calibration-ray-logs-plan.json &&
-git add -f -- results/c20-calibration-ray-logs-plan.json &&
-git commit -m "Freeze C20 calibration with Ray startup diagnostics"
+  --plan results/c20-calibration-1800s-plan.json &&
+git add -f -- results/c20-calibration-1800s-plan.json &&
+git commit -m "Freeze 1800-second C20 calibration protocol"
 ```
 
 Then submit:
 
 ```bash
 python scripts/run_workload_calibration.py submit \
-  --plan results/c20-calibration-ray-logs-plan.json
+  --plan results/c20-calibration-1800s-plan.json
 ```
 
 Submission and execution check that all frozen runtime/reference files and the
@@ -235,8 +230,9 @@ per task, in addition to the diagnostic's four-or-more CPUs per task.
 Startup permits 180 seconds for CLI readiness, 90 for agent ports, and 120 for
 the calibration actor's ready response. The longer actor readiness limit
 accommodates the observed 87.520-second worker probe. The outer driver limit
-is now 29 minutes; the allocation remains 30 minutes. Both scientific trials
-retain their 600-second harness limit and 660-second Ray wait. There are no
+was 29 minutes for that integration; its allocation was 30 minutes. Both scientific trials
+then retained their 600-second harness limit and 660-second Ray wait. The subsequent
+SCF timeout and revised budget are documented below. There are no
 automatic retries or changes to the scientific input, image, MPI layout,
 reference energy, or tolerance.
 
@@ -245,9 +241,42 @@ times in provenance, as well as `ray-start.log` and `port-forwarding.json`.
 All startup failures leave trials unstarted. Actor, driver, and owned-launcher
 cleanup are each attempted, even if another cleanup operation fails.
 
-After applying and testing the integration, commit its sources, then create a
-NEW plan at `results/c20-calibration-forwarded-plan.json`. Old plans remain
-historical records and cannot be submitted against the changed sources.
-Use the same plan/check/submit commands above with the new filename. Preflight
-now also exercises the installed Ray command builder without launching any
-process. A successful future C20 run still requires scientific audit.
+That integration was frozen in `results/c20-calibration-forwarded-plan.json`.
+It remains a historical record; the current protocol uses the new 1800-second
+plan described above. A completed C20 run still requires scientific audit.
+
+
+## Observed SCF timeout and longer calibration budget
+
+Job `60197597` on `nid004154`, under plan
+`dfe0cf6024be55507a12eecbe3931e9ee6750debef44085436498f4f938bd7d3`,
+connected to Ray and launched NWChem from worker PID 708969. The user-reported
+saved output in
+`results/c20-calibration-60197597-1792826878888787032/trial-0001/cases/nwchem-p0-r0-5adh519t/output.txt`
+contains five SCF iterations. Iteration 5 reported time 541.3 seconds, energy
+-756.7024865534 Hartree and orbital-gradient norm 6.86e-5. The input requested
+an SCF convergence threshold of 1e-10. The harness wait reached 600.065 seconds,
+then terminated its process group; Slurm reported the step killed. Trial 2
+remained unstarted. No completed C20 measurement or scientific PASS was obtained.
+
+A near-reference iteration energy is insufficient for acceptance. NWChem's
+[THRESH criterion](https://nwchemgit.github.io/Hartree-Fock-Theory-for-Molecules.html#thresh-convergence-threshold)
+uses the orbital-gradient norm; the harness also requires the final results,
+normal termination, and zero process exit code. The partial output is retained
+as failure evidence, never promoted to a final energy or throughput result.
+
+This observation motivates a new bounded protocol: two fresh single-case runs,
+each limited to 1800 seconds, with a 1860-second Ray wait. The batch requests
+75 minutes in regular QoS and the driver has a 73-minute limit plus a 30-second
+kill grace period. These are limits, not predictions of runtime or convergence.
+They provide room for two trials and startup/cleanup; failure still stops the
+study, with no automatic retries. The allocation uses the same node/task/CPU
+counts. See [NERSC queue limits](https://docs.nersc.gov/jobs/policy/).
+
+The scientific input and its 1e-10 SCF threshold, reference and 1e-6 Hartree
+validation tolerance, pinned image, MPI layout, and streamed-output handling
+are unchanged. New trials start in fresh directories and do not resume the
+interrupted orbitals. Keep the failed session and its source snapshot, and
+commit `results/c20-calibration-1800s-plan.json` before submission. Until a live
+run and audit pass, the larger workload remains unvalidated. Two completed
+calibration trials would still not establish a larger-workload policy advantage.
