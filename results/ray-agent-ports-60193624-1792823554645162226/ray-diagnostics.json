@@ -1,0 +1,22 @@
+{
+  "files": [
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/raylet.out",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/raylet.err",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/gcs_server.out",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/gcs_server.err",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/dashboard.log",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/dashboard.out",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/dashboard.err",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/dashboard_agent.log",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/dashboard_agent.out",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/dashboard_agent.err",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/runtime_env_agent.log",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/runtime_env_agent.out",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/runtime_env_agent.err",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/monitor.log",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/monitor.out",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/monitor.err",
+    "ray-logs/session_2026-10-23_23-34-36_471071_609373/ray_process_exit.log"
+  ],
+  "errors": []
+}
