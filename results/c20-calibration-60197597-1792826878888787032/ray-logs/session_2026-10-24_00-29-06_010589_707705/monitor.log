@@ -1,0 +1,3321 @@
+2026-10-24 00:29:28,357	INFO monitor.py:715 -- Starting monitor using ray installation: /global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/__init__.py
+2026-10-24 00:29:28,357	INFO monitor.py:716 -- Ray version: 2.54.0
+2026-10-24 00:29:28,357	INFO monitor.py:717 -- Ray commit: 48bd1f8fa43d0e8222b0f57357b99b48c7437ed3
+2026-10-24 00:29:28,357	INFO monitor.py:718 -- Monitor started with command: ['/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/autoscaler/_private/monitor.py', '--logs-dir=/tmp/chia-ray-dlyd5_fm/session_2026-10-24_00-29-06_010589_707705/logs', '--logging-rotate-bytes=536870912', '--logging-rotate-backup-count=5', '--gcs-address=128.55.70.161:49535', '--stdout-filepath=/tmp/chia-ray-dlyd5_fm/session_2026-10-24_00-29-06_010589_707705/logs/monitor.out', '--stderr-filepath=/tmp/chia-ray-dlyd5_fm/session_2026-10-24_00-29-06_010589_707705/logs/monitor.err', '--monitor-ip=128.55.70.161']
+2026-10-24 00:29:28,367	INFO monitor.py:161 -- session_name: session_2026-10-24_00-29-06_010589_707705
+2026-10-24 00:29:28,369	INFO monitor.py:193 -- Starting autoscaler metrics server on port 44217
+2026-10-24 00:29:28,377	INFO monitor.py:218 -- Monitor: Started
+2026-10-24 00:29:28,444	INFO autoscaler.py:280 -- disable_node_updaters:False
+2026-10-24 00:29:28,444	INFO autoscaler.py:289 -- disable_launch_config_check:True
+2026-10-24 00:29:28,444	INFO autoscaler.py:301 -- foreground_node_launch:False
+2026-10-24 00:29:28,444	INFO autoscaler.py:311 -- worker_liveness_check:True
+2026-10-24 00:29:28,446	INFO autoscaler.py:361 -- StandardAutoscaler: {'cluster_name': 'default', 'max_workers': 0, 'upscaling_speed': 1.0, 'docker': {}, 'idle_timeout_minutes': 0, 'provider': {'type': 'readonly', 'use_node_id_as_ip': True, 'disable_launch_config_check': True}, 'auth': {}, 'available_node_types': {'ray.head.default': {'resources': {}, 'node_config': {}, 'max_workers': 0}}, 'head_node_type': 'ray.head.default', 'file_mounts': {}, 'cluster_synced_files': [], 'file_mounts_sync_continuously': False, 'rsync_exclude': [], 'rsync_filter': [], 'initialization_commands': [], 'setup_commands': [], 'head_setup_commands': [], 'worker_setup_commands': [], 'head_start_ray_commands': [], 'worker_start_ray_commands': []}
+2026-10-24 00:29:28,448	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-24 00:29:33,453	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-24 00:29:38,457	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-24 00:29:43,465	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-24 00:29:48,469	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-24 00:29:53,477	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:29:53,477	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:29:53.477870 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:29:53,478	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:29:58,486	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:29:58,487	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:29:58.487043 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:29:58,487	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:03,495	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:03,495	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:03.495875 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:03,496	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:08,504	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:08,504	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:08.504633 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:08,505	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:13,513	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:13,513	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:13.513432 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:13,514	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:18,522	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:18,522	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:18.522224 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:18,522	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:23,530	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:23,531	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:23.530948 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:23,531	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:28,539	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:28,539	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:28.539369 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:28,540	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:33,548	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:33,548	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:33.548320 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:33,549	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:38,556	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:38,557	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:38.557002 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:38,557	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:43,565	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:43,565	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:43.565771 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:43,566	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:48,574	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:48,574	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:48.574583 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:48,575	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:53,583	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:53,583	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:53.583218 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:53,583	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:30:58,592	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:30:58,592	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:30:58.592272 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:30:58,593	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:03,600	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:03,600	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:03.600835 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:03,601	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:08,609	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:08,609	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:08.609626 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:08,610	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:13,617	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:13,617	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:13.617762 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:13,618	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:18,625	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:18,625	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:18.625622 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:18,626	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:23,634	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:23,634	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:23.634268 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:23,634	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:28,642	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:28,642	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:28.642864 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:28,643	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:33,649	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:33,650	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:33.650155 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:33,650	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:38,659	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:38,659	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:38.659233 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:38,659	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:43,667	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:43,668	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:43.667991 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:43,668	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:48,676	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:48,676	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:48.676669 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:48,677	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:53,685	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:53,685	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:53.685466 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:53,686	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:31:58,693	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:31:58,693	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:31:58.693802 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:31:58,694	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:03,702	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:03,702	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:03.702537 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:03,703	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:08,711	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:08,711	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:08.711455 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:08,712	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:13,720	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:13,720	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:13.720334 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:13,720	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:18,728	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:18,729	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:18.729145 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:18,729	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:23,737	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:23,738	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:23.738062 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:23,738	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:28,746	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:28,746	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:28.746646 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:28,747	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:33,755	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:33,755	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:33.755444 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:33,756	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:38,764	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:38,764	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:38.764206 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:38,764	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:43,772	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:43,772	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:43.772693 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:43,773	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:48,781	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:48,781	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:48.781650 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:48,782	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:53,790	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:53,790	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:53.790489 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:53,791	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:32:58,799	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:32:58,799	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:32:58.799758 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:32:58,800	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:03,807	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:03,807	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:03.807320 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:03,808	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:08,815	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:08,816	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:08.815972 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:08,816	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:13,822	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:13,822	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:13.822489 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:13,823	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:18,830	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:18,831	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:18.831143 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:18,831	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:23,839	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:23,839	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:23.839835 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:23,840	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:28,848	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:28,848	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:28.848794 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:28,849	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:33,857	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:33,857	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:33.857481 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:33,858	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:38,866	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:38,866	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:38.866539 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:38,867	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:43,875	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:43,875	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:43.875507 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:43,876	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:48,883	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:48,884	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:48.883951 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:48,884	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:53,892	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:53,892	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:53.892658 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:53,893	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:33:58,901	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:33:58,901	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:33:58.901479 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:33:58,902	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:03,910	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:03,910	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:03.910423 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:03,911	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:08,919	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:08,919	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:08.919385 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:08,920	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:13,925	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:13,925	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:13.925894 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:13,926	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:18,934	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:18,934	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:18.934780 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:18,935	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:23,943	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:23,943	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:23.943714 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:23,944	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:28,952	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:28,952	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:28.952514 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:28,953	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:33,960	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:33,961	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:33.961089 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:33,961	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:38,966	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:38,966	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:38.966907 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:38,967	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:43,975	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:43,975	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:43.975737 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:43,976	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:48,984	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:48,984	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:48.984801 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:48,985	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:53,993	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:53,993	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:53.993526 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:53,994	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:34:59,002	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:34:59,002	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:34:59.002248 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:34:59,002	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:04,010	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:04,010	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:04.010815 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:04,011	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:09,019	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:09,019	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:09.019558 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:09,020	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:14,027	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:14,027	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:14.027888 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:14,028	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:19,036	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:19,036	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:19.036595 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:19,037	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:24,045	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:24,045	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:24.045360 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:24,046	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:29,054	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:29,054	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:29.054247 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:29,054	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:34,062	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:34,062	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:34.062932 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:34,063	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:39,071	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:39,071	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:39.071849 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:39,072	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:44,080	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:44,080	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:44.080734 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:44,081	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:49,089	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:49,089	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:49.089493 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:49,090	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:54,097	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:54,098	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:54.098158 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:54,098	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:35:59,106	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:35:59,106	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:35:59.106841 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:35:59,107	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:04,115	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:04,116	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:04.115999 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:04,116	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:09,124	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:09,124	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:09.124602 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:09,125	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:14,133	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:14,133	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:14.133255 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:14,133	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:19,141	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:19,142	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:19.141948 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:19,142	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:24,150	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:24,150	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:24.150755 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:24,151	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:29,155	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:29,156	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:29.156005 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:29,156	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:34,162	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:34,162	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:34.162759 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:34,163	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:39,166	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:39,166	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:39.166834 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:39,167	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:44,175	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:44,175	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:44.175642 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:44,176	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:49,184	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:49,184	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:49.184367 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:49,185	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:54,193	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:54,193	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:54.193466 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:54,194	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:36:59,202	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:36:59,202	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:36:59.202582 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:36:59,203	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:04,211	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:04,211	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:04.211335 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:04,212	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:09,219	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:09,220	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:09.220133 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:09,220	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:14,228	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:14,229	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:14.229161 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:14,229	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:19,237	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:19,238	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:19.238030 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:19,238	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:24,246	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:24,246	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:24.246714 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:24,247	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:29,255	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:29,255	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:29.255434 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:29,256	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:34,264	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:34,264	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:34.264541 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:34,265	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:39,273	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:39,273	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:39.273595 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:39,274	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:44,280	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:44,280	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:44.280348 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:44,281	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:49,289	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:49,289	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:49.289286 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:49,290	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:54,296	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:54,297	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:54.297017 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:54,297	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:37:59,305	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:37:59,306	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:37:59.305947 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:37:59,306	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:04,314	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:04,314	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:04.314926 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:04,315	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:09,323	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:09,323	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:09.323800 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:09,324	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:14,332	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:14,332	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:14.332334 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:14,332	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:19,341	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:19,341	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:19.341525 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:19,342	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:24,350	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:24,350	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:24.350282 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:24,351	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:29,359	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:29,359	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:29.359381 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:29,360	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:34,367	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:34,368	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:34.368182 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:34,368	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:39,376	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:39,376	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:39.376843 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:39,377	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:44,385	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:44,385	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:44.385501 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:44,386	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:49,393	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:49,394	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:49.394179 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:49,394	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:54,403	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:54,403	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:54.403185 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:54,403	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:38:59,411	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:38:59,412	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:38:59.411993 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:38:59,412	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:04,420	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:04,420	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:04.420676 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:04,421	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:09,429	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:09,429	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:09.429523 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:09,430	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:14,438	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:14,438	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:14.438284 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:14,439	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:19,447	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:19,447	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:19.447356 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:19,448	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:24,456	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:24,456	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:24.456445 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:24,457	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:29,465	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:29,465	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:29.465328 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:29,466	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:34,473	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:34,473	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:34.473802 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:34,474	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:39,482	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:39,482	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:39.482807 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:39,483	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:44,491	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:44,491	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:44.491323 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:44,492	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:49,499	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:49,500	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:49.500158 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:49,500	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:54,508	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:54,508	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:54.508748 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:54,509	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:39:59,517	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:39:59,517	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:39:59.517824 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:39:59,518	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:04,526	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:04,526	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:04.526602 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:04,527	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:09,535	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:09,535	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:09.535570 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:09,536	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:14,542	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:14,543	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:14.543004 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:14,543	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:19,551	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:19,551	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:19.551736 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:19,552	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:24,560	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:24,560	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:24.560650 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:24,561	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:29,569	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:29,569	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:29.569260 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:29,569	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:34,577	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:34,578	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:34.578152 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:34,578	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:39,586	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:39,586	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:39.586763 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:39,587	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:44,595	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:44,595	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:44.595368 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:44,596	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:49,603	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:49,604	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:49.604035 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:49,604	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:54,612	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:54,613	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:54.613069 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:54,613	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:40:59,621	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:40:59,621	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:40:59.621495 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:40:59,622	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:41:04,629	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:41:04,629	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:41:04.629847 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:41:04,630	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:41:09,634	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:41:09,634	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:41:09.634826 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:41:09,635	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:41:14,643	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-10-24 00:41:14,643	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-10-24 00:41:14.643658 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_b0436580c5b8ed1ecdeb2bd58202b9a00aa925afb6e5aefef9b36906
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 1.0/4.0 CPU
+ 0B/479.68GiB memory
+ 0B/256.00MiB object_store_memory
+
+From request_resources:
+ (none)
+Pending Demands:
+ (no resource demands)
+2026-10-24 00:41:14,644	INFO autoscaler.py:469 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-10-24 00:41:16,947	ERROR monitor.py:580 -- Monitor: Failure in signal handler.
+Traceback (most recent call last):
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/autoscaler/_private/monitor.py", line 575, in _signal_handler
+    self._handle_failure(
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/autoscaler/_private/monitor.py", line 562, in _handle_failure
+    _internal_kv_put(
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/client_mode_hook.py", line 104, in wrapper
+    return func(*args, **kwargs)
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/experimental/internal_kv.py", line 94, in _internal_kv_put
+    return global_gcs_client.internal_kv_put(key, value, overwrite, namespace) == 0
+  File "python/ray/includes/gcs_client.pxi", line 137, in ray._raylet.InnerGcsClient.internal_kv_put
+  File "python/ray/includes/common.pxi", line 211, in ray._raylet.raise_or_return
+  File "python/ray/includes/gcs_client.pxi", line 890, in ray._raylet.convert_optional_bool
+  File "python/ray/includes/common.pxi", line 143, in ray._raylet.check_status_timeout_as_rpc_error
+  File "python/ray/includes/common.pxi", line 118, in ray._raylet.check_status
+ray.exceptions.RpcError: RPC error: CANCELLED

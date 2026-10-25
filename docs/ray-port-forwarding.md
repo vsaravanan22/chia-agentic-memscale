@@ -1,8 +1,11 @@
 # Ray 2.54.0 startup diagnostic: HTTP-port forwarding
 
-This is a diagnostic-only, process-local compatibility correction. It does
-not change the installed Ray package, the scientific runner, or a frozen C20
-plan. A successful startup diagnostic is not a successful C20 calibration.
+This process-local compatibility correction was first validated by a Ray-only
+diagnostic (job `60193624`) and subsequently integrated into the C20 runner
+under new frozen plans. It does not edit the installed Ray package. The
+separate C20 calibration in job `60199152` passed both scientific trials and
+its evidence audit; see [C20 results](c20-results.md). The standalone diagnostic
+itself launches no scientific workload.
 
 ## Observed failure
 

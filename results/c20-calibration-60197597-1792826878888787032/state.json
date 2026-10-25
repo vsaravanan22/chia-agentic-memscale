@@ -1,0 +1,43 @@
+{
+  "plan_sha256": "dfe0cf6024be55507a12eecbe3931e9ee6750debef44085436498f4f938bd7d3",
+  "attempts": [
+    {
+      "trial_id": "trial-0001",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      },
+      "status": "failed",
+      "attempt_wait_elapsed_s": 600.5362033349811,
+      "worker_elapsed_s": 600.3896801600058,
+      "worker_pid": 708969,
+      "error_type": "TimeoutExpired"
+    },
+    {
+      "trial_id": "trial-0002",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      },
+      "status": "not_started",
+      "attempt_wait_elapsed_s": null,
+      "worker_elapsed_s": null
+    }
+  ],
+  "stage": "trial-0001",
+  "fatal_error_type": "RuntimeError",
+  "fatal_error_stage": "trial-0001",
+  "validation": {
+    "passed": false,
+    "planned_trials": 2,
+    "attempted_trials": 1,
+    "successful_trials": 0,
+    "session_including_cleanup_s": 799.6994840280095
+  }
+}

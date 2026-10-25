@@ -1,0 +1,23 @@
+{
+  "case_id": "p0-r0",
+  "command": [
+    "srun",
+    "--exclusive",
+    "--exact",
+    "--nodes=1",
+    "--ntasks",
+    "2",
+    "--cpus-per-task",
+    "2",
+    "--cpu-bind=cores",
+    "--kill-on-bad-exit=1",
+    "shifter",
+    "--image",
+    "id:60433343d8c7b7d2d308dc7965f479f456670bfc4c8059a3fdde624e862b6d16",
+    "--module=mpich",
+    "nwchem",
+    "c20_bowl_scf.nw"
+  ],
+  "started_time_ns": 1792827079655009514,
+  "output_file": "/global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60197597-1792826878888787032/trial-0001/cases/nwchem-p0-r0-5adh519t/output.txt"
+}

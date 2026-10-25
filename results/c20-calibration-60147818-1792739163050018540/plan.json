@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "c20-calibration",
+  "backend": "perlmutter",
+  "workload": "nwchem_c20_bowl_cc-pvdz_rhf",
+  "trial_timeout_s": 600,
+  "mpi_tasks": 2,
+  "cpus_per_task": 2,
+  "warmup_trials": 0,
+  "reference_energy_hartree": -756.702486554389,
+  "tolerance_hartree": 1e-06,
+  "trials": [
+    {
+      "trial_id": "trial-0001",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      }
+    },
+    {
+      "trial_id": "trial-0002",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      }
+    }
+  ],
+  "image_id": "60433343d8c7b7d2d308dc7965f479f456670bfc4c8059a3fdde624e862b6d16",
+  "runtime_sha256": {
+    "scripts/run_workload_calibration.py": "726f5915d9cef029c493ce341ba17785ea4cb864d5192b13deef34a5c7047eca",
+    "scripts/run_workload_calibration.sbatch": "8c2e191dc39c268c91006212cedff6a5503ee90d640f7b21d2cee455fbcf29bb",
+    "tools/experiment_session.py": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86",
+    "workload/nwchem_benchmark.py": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df",
+    "workload/inputs/c20_bowl_scf.nw": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb",
+    "scripts/run_policy_confirmation.py": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956",
+    "scripts/analyze_policy_comparison.py": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537",
+    "tools/policy_costs.py": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031",
+    "provenance/c20-bowl/reference.json": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3",
+    "provenance/c20-bowl/upstream.nw": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda",
+    "provenance/c20-bowl/upstream.out": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7",
+    "provenance/c20-bowl/LICENSE.TXT": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+  },
+  "plan_sha256": "135ad5b2b6c5deeeb4bf7985c15a661ffe8ee524d5b714b196fc1a145f2c3b7f"
+}

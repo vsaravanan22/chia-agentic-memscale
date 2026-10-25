@@ -1,0 +1,36 @@
+[2026-10-23 00:45:15,427 I 400874 400874] (raylet) main.cc:278: Setting cluster ID to: 3fe94fb8f4fb1b187bf8a131feebeb6ecaef581d1c7c2f754bc40eba
+[2026-10-23 00:45:15,521 I 400874 400874] (raylet) main.cc:518: Per-worker process group cleanup is DISABLED, subreaper is DISABLED
+[2026-10-23 00:45:15,521 I 400874 400874] (raylet) main.cc:655: Setting node ID node_id=417c234a6d5df4cc7bfa04d9d29d06927eb366b86a325999968051a7
+[2026-10-23 00:45:15,521 I 400874 400874] (raylet) store_runner.cc:50: Allowing the Plasma store to use up to 0.268435GB of memory.
+[2026-10-23 00:45:15,521 I 400874 400874] (raylet) store_runner.cc:66: Starting object store with directory /dev/shm, fallback /tmp/chia-ray-08ruamoj/session_2026-10-23_00-44-08_294493_400285, and huge page support disabled
+[2026-10-23 00:45:15,522 I 400874 400899] (raylet) dlmalloc.cc:324: Setting dlmalloc config: plasma_directory=/dev/shm, fallback_directory=/tmp/chia-ray-08ruamoj/session_2026-10-23_00-44-08_294493_400285, hugepage_enabled=0, fallback_enabled=1
+[2026-10-23 00:45:15,522 I 400874 400899] (raylet) dlmalloc.cc:153: create_and_mmap_buffer(268435464, /dev/shm/plasmaXXXXXX)
+[2026-10-23 00:45:15,523 I 400874 400899] (raylet) store.cc:572: Plasma store debug dump: 
+Current usage: 0 / 0.268435 GB
+- num bytes created total: 0
+0 pending objects of total size 0MB
+- objects spillable: 0
+- bytes spillable: 0
+- objects unsealed: 0
+- bytes unsealed: 0
+- objects in use: 0
+- bytes in use: 0
+- objects evictable: 0
+- bytes evictable: 0
+
+- objects created by worker: 0
+- bytes created by worker: 0
+- objects restored: 0
+- bytes restored: 0
+- objects received: 0
+- bytes received: 0
+- objects errored: 0
+- bytes errored: 0
+
+[2026-10-23 00:45:15,530 I 400874 400874] (raylet) grpc_server.cc:143: ObjectManager server started, listening on port 40219.
+[2026-10-23 00:45:15,533 W 400874 400874] (raylet) memory_monitor.cc:197: Got negative used memory for cgroup -1, setting it to zero
+[2026-10-23 00:45:15,533 I 400874 400874] (raylet) memory_monitor.cc:47: MemoryMonitor initialized with usage threshold at 513156055040 bytes (0.95 system memory), total system memory bytes: 540164263936
+[2026-10-23 00:45:15,533 I 400874 400874] (raylet) node_manager.cc:248: Initializing NodeManager node_id=417c234a6d5df4cc7bfa04d9d29d06927eb366b86a325999968051a7
+[2026-10-23 00:45:15,533 I 400874 400874] (raylet) grpc_server.cc:143: NodeManager server started, listening on port 45867.
+[2026-10-23 00:45:15,543 I 400874 400927] (raylet) agent_manager.cc:81: Monitor agent process with name dashboard_agent
+[2026-10-23 00:45:15,544 I 400874 400929] (raylet) agent_manager.cc:81: Monitor agent process with name runtime_env_agent

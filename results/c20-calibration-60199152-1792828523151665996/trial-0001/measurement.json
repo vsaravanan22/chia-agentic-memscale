@@ -1,0 +1,56 @@
+{
+  "backend": "perlmutter",
+  "workload": "nwchem_c20_bowl_cc-pvdz_rhf",
+  "configuration": {
+    "partitions": 1,
+    "executors": 1,
+    "replication": 1,
+    "batch_size": 1,
+    "placement": "single-node"
+  },
+  "aggregate": {
+    "status": "success",
+    "cases_completed": 1,
+    "cases_total": 1,
+    "experiment_elapsed_s": 1430.007,
+    "latency_mean_ms": 1429856.138,
+    "throughput_cases_per_s": 0.000699,
+    "memory_peak_mb": null
+  },
+  "scientific_validation": {
+    "reference_energy_hartree": -756.702486554389,
+    "tolerance_hartree": 1e-06
+  },
+  "cases": [
+    {
+      "command": [
+        "srun",
+        "--exclusive",
+        "--exact",
+        "--nodes=1",
+        "--ntasks",
+        "2",
+        "--cpus-per-task",
+        "2",
+        "--cpu-bind=cores",
+        "--kill-on-bad-exit=1",
+        "shifter",
+        "--image",
+        "id:60433343d8c7b7d2d308dc7965f479f456670bfc4c8059a3fdde624e862b6d16",
+        "--module=mpich",
+        "nwchem",
+        "c20_bowl_scf.nw"
+      ],
+      "cpu_ids": null,
+      "case_id": "p0-r0",
+      "partition": 0,
+      "replica": 0,
+      "returncode": 0,
+      "latency_ms": 1429856.138,
+      "energy_hartree": -756.702486554343,
+      "memory_mb": null,
+      "passed": true,
+      "run_directory": "/global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60199152-1792828523151665996/trial-0001/cases/nwchem-p0-r0-6zyua0eh"
+    }
+  ]
+}

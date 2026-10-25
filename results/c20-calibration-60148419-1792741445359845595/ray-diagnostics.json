@@ -1,0 +1,22 @@
+{
+  "ray_temp_dir": "/tmp/chia-ray-08ruamoj",
+  "files": [
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/raylet.out",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/raylet.err",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/gcs_server.out",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/gcs_server.err",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard.log",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard.out",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard.err",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard_agent.log",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard_agent.out",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard_agent.err",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/runtime_env_agent.log",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/runtime_env_agent.out",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/runtime_env_agent.err",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/monitor.log",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/monitor.out",
+    "ray-logs/session_2026-10-23_00-44-08_294493_400285/monitor.err"
+  ],
+  "errors": []
+}

@@ -1,0 +1,116 @@
+{
+  "job_id": "60199152",
+  "hostname": "nid004608",
+  "driver_pid": 950933,
+  "python": "3.10.19",
+  "ray_version": "2.54.0",
+  "git_commit": "526a40761d34ee0c8c42ba3a3714e22a5af60f13",
+  "source_sha256": {
+    "scripts/run_workload_calibration.py": "2714718281400fe3f66240c41089bcd24866e5fac488a109670567c3d4673aa6",
+    "scripts/run_workload_calibration.sbatch": "c74b72ca1d87f16e6176564e47e6b5cd57e8a599a0c8f9ab1e6af847ac7d5a9b",
+    "scripts/check_ray_agent_ports.py": "377729ce4ab7a352bd2a52701e4fd502f905bf119523835fbe57984a2d6de05e",
+    "scripts/ray_port_forwarding.py": "b25e6c4f13adbfc90e47294771438035c433144641175877de6dccd1ead1e848",
+    "tools/experiment_session.py": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86",
+    "workload/nwchem_benchmark.py": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df",
+    "workload/inputs/c20_bowl_scf.nw": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb",
+    "scripts/run_policy_confirmation.py": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956",
+    "scripts/analyze_policy_comparison.py": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537",
+    "tools/policy_costs.py": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031",
+    "provenance/c20-bowl/reference.json": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3",
+    "provenance/c20-bowl/upstream.nw": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda",
+    "provenance/c20-bowl/upstream.out": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7",
+    "provenance/c20-bowl/LICENSE.TXT": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+  },
+  "resolved_image_id": "60433343d8c7b7d2d308dc7965f479f456670bfc4c8059a3fdde624e862b6d16",
+  "worker": {
+    "worker_pid": 952130,
+    "hostname": "nid004608",
+    "source_sha256": {
+      "scripts/run_workload_calibration.py": "2714718281400fe3f66240c41089bcd24866e5fac488a109670567c3d4673aa6",
+      "scripts/run_workload_calibration.sbatch": "c74b72ca1d87f16e6176564e47e6b5cd57e8a599a0c8f9ab1e6af847ac7d5a9b",
+      "scripts/check_ray_agent_ports.py": "377729ce4ab7a352bd2a52701e4fd502f905bf119523835fbe57984a2d6de05e",
+      "scripts/ray_port_forwarding.py": "b25e6c4f13adbfc90e47294771438035c433144641175877de6dccd1ead1e848",
+      "tools/experiment_session.py": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86",
+      "workload/nwchem_benchmark.py": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df",
+      "workload/inputs/c20_bowl_scf.nw": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb",
+      "scripts/run_policy_confirmation.py": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956",
+      "scripts/analyze_policy_comparison.py": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537",
+      "tools/policy_costs.py": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031",
+      "provenance/c20-bowl/reference.json": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3",
+      "provenance/c20-bowl/upstream.nw": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda",
+      "provenance/c20-bowl/upstream.out": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7",
+      "provenance/c20-bowl/LICENSE.TXT": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    }
+  },
+  "ray_temp_dir": "/tmp/chia-ray-jlbb47ex",
+  "port_forwarding_preflight": {
+    "added_missing_dashboard_port": true,
+    "agent_ports": {
+      "metrics_agent_port": 24001,
+      "metrics_export_port": 24002,
+      "dashboard_agent_listen_port": 24003,
+      "runtime_env_agent_port": 24004
+    },
+    "raylet_ports": {
+      "metrics_agent_port": 24001,
+      "metrics_export_port": 24002,
+      "dashboard_agent_listen_port": 24003,
+      "runtime_env_agent_port": 24004
+    },
+    "ray_services_path": "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/services.py",
+    "ray_services_sha256": "176d9877139ba0106ea8f0090f1d38deb2f76728f8d90539bbc08398ece698e5",
+    "ray_version": "2.54.0",
+    "processes_launched": 0
+  },
+  "ray_address": "128.55.72.103:56503",
+  "ray_ports": {
+    "--port": 56503,
+    "--dashboard-agent-grpc-port": 57801,
+    "--metrics-export-port": 57971,
+    "--dashboard-agent-listen-port": 47201,
+    "--runtime-env-agent-port": 39441
+  },
+  "ray_command": [
+    "/global/homes/m/makhatri/.conda/envs/chia-memscale/bin/python",
+    "-u",
+    "/global/u1/m/makhatri/chia-agentic-memscale/scripts/ray_port_forwarding.py",
+    "--record",
+    "/global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60199152-1792828523151665996/port-forwarding.json",
+    "start",
+    "--head",
+    "--block",
+    "--include-dashboard=false",
+    "--num-cpus=4",
+    "--num-gpus=0",
+    "--object-store-memory=268435456",
+    "--disable-usage-stats",
+    "--temp-dir=/tmp/chia-ray-jlbb47ex",
+    "--node-ip-address=128.55.72.103",
+    "--port=56503",
+    "--dashboard-agent-grpc-port=57801",
+    "--metrics-export-port=57971",
+    "--dashboard-agent-listen-port=47201",
+    "--runtime-env-agent-port=39441"
+  ],
+  "ray_cli_startup_s": 85.61255986100878,
+  "ray_agent_readiness_s": 38.06539371801773,
+  "port_forwarding": {
+    "added_missing_dashboard_port": true,
+    "agent_ports": {
+      "metrics_agent_port": 57801,
+      "metrics_export_port": 57971,
+      "dashboard_agent_listen_port": 47201,
+      "runtime_env_agent_port": 39441
+    },
+    "raylet_ports": {
+      "metrics_agent_port": 57801,
+      "metrics_export_port": 57971,
+      "dashboard_agent_listen_port": 47201,
+      "runtime_env_agent_port": 39441
+    },
+    "ray_services_path": "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/services.py",
+    "ray_services_sha256": "176d9877139ba0106ea8f0090f1d38deb2f76728f8d90539bbc08398ece698e5",
+    "meaning": "Validated launch arguments; not a readiness result."
+  },
+  "ray_worker_ready_s": 37.22186846198747
+}

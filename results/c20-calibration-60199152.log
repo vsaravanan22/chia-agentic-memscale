@@ -1,0 +1,6 @@
+Session: /global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60199152-1792828523151665996
+Ray startup; temporary directory: /tmp/chia-ray-jlbb47ex
+Ray CLI and agent ports ready; connecting calibration worker...
+trial-0001 validated success; harness seconds: 1430.007
+trial-0002 validated success; harness seconds: 1426.931
+PASS /global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60199152-1792828523151665996

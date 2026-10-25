@@ -1,0 +1,6 @@
+[2026-10-24 00:57:47,098 E 951582 951582] (raylet) main.cc:1047: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[2026-10-24 01:46:38,316 E 951582 951635] (raylet) agent_manager.cc:87: The raylet exited immediately because one Ray agent failed, agent_name = dashboard_agent.
+The raylet fate shares with the agent. This can happen because
+- The version of `grpcio` doesn't follow Ray's requirement. Agent can segfault with the incorrect `grpcio` version. Check the grpcio version `pip freeze | grep grpcio`.
+- The agent failed to start because of unexpected error or port conflict. Read the log `cat /tmp/ray/session_latest/logs/{dashboard_agent|runtime_env_agent}.log`. You can find the log file structure here https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#logging-directory-structure.
+- The agent is killed by the OS (e.g., out of memory).

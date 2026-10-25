@@ -1,9 +1,10 @@
 # Larger-workload calibration: C20 bowl RHF/cc-pVDZ
 
-**Status: no C20 case has yet passed scientific validation.** The first attempt
-timed out; the second failed during Ray startup before either trial began.
-The corrected startup diagnostic passed in job `60193624`; C20 itself remains unvalidated.
-This is the first step toward the optional larger-workload evaluation. The
+**Status: both C20 calibration trials passed the scientific evidence audit.**
+Job `60199152` completed with exit `0:0` in 52 minutes 21 seconds. Harness
+times were 1430.007 and 1426.931 seconds, with mean 1428.469 seconds and
+sample SD 2.175 seconds. See [results, evidence, and limitations](c20-results.md).
+Earlier timeout and startup failures are retained below. The
 existing water policy loop, published evidence, and scientific reference remain
 the water workflow. C20 is an explicit additional workload in the same NWChem
 launcher and raw-output validator.
@@ -17,7 +18,8 @@ The exact upstream input/output, version distinction, modifications, license
 notice, URLs and hashes are preserved in [provenance/c20-bowl](../provenance/c20-bowl/).
 
 This is a larger SCF molecule/basis workload, not the previously mentioned
-1H9T case. Its runtime on the allocated Perlmutter node is unknown. The upstream
+1H9T case. The two calibrated single-case harness times are approximately
+23.8 minutes each in the recorded allocation. The upstream
 output comes from a different version/process count and includes subsequent
 coupled-cluster work; its total time must not be used as our expected SCF time.
 
@@ -67,7 +69,8 @@ directory under `/tmp` for each Ray instance, records its path in provenance,
 and copies available Ray system logs into the result session after shutdown.
 Short node-local paths avoid Unix socket path-length problems and isolate runs.
 At that stage, no startup retry or increased timeout was introduced. The cause of the observed
-node-registration failure remains undetermined.
+node-registration failure was then undetermined; the later port-forwarding
+diagnostic and integration are described below.
 
 The result session now includes:
 
@@ -199,8 +202,8 @@ evidence selection is reviewed.
 
 ## Next decision
 
-Use the two measured durations and validation outcomes to decide whether C20
-fits the larger study's allocation/time budget. If it does, freeze a separate
+The two validated calibration times are about 23.8 minutes per case. Assess
+that cost before expanding to policy search. A larger policy study requires a separate
 protocol for three-case configurations, independent policy sessions, repeated
 measurements and cost accounting. That policy integration is not enabled by this
 calibration patch. Measure model and runtime overhead during that new study;
@@ -276,7 +279,9 @@ counts. See [NERSC queue limits](https://docs.nersc.gov/jobs/policy/).
 The scientific input and its 1e-10 SCF threshold, reference and 1e-6 Hartree
 validation tolerance, pinned image, MPI layout, and streamed-output handling
 are unchanged. New trials start in fresh directories and do not resume the
-interrupted orbitals. Keep the failed session and its source snapshot, and
-commit `results/c20-calibration-1800s-plan.json` before submission. Until a live
-run and audit pass, the larger workload remains unvalidated. Two completed
-calibration trials would still not establish a larger-workload policy advantage.
+interrupted orbitals. Keep the failed session and its source snapshot.
+The new protocol was committed as `results/c20-calibration-1800s-plan.json`
+in `526a407` before submission. Job `60199152` subsequently completed both
+trials and passed its evidence audit with no errors. Full measurements and
+limitations are in [c20-results.md](c20-results.md). This establishes calibration
+success, not a larger-workload policy advantage.

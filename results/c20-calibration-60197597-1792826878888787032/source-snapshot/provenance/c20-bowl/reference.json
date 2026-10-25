@@ -1,0 +1,37 @@
+{
+  "repository": "https://github.com/nwchemgit/nwchem",
+  "revision": "d0d141fdfbf9595b9fd0ec3c7c803c6c5fe020b2",
+  "tag": "v7.2.0-release",
+  "upstream_output_version": "6.8",
+  "files": {
+    "upstream.nw": {
+      "path": "QA/chem_library_tests/C20/c20_bowl_ccpvdz_17_7_7.nw",
+      "url": "https://raw.githubusercontent.com/nwchemgit/nwchem/d0d141fdfbf9595b9fd0ec3c7c803c6c5fe020b2/QA/chem_library_tests/C20/c20_bowl_ccpvdz_17_7_7.nw",
+      "sha256": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda"
+    },
+    "upstream.out": {
+      "path": "QA/chem_library_tests/C20/c20_bowl_ccpvdz_17_7_7.out",
+      "url": "https://raw.githubusercontent.com/nwchemgit/nwchem/d0d141fdfbf9595b9fd0ec3c7c803c6c5fe020b2/QA/chem_library_tests/C20/c20_bowl_ccpvdz_17_7_7.out",
+      "sha256": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7"
+    },
+    "LICENSE.TXT": {
+      "path": "LICENSE.TXT",
+      "url": "https://raw.githubusercontent.com/nwchemgit/nwchem/d0d141fdfbf9595b9fd0ec3c7c803c6c5fe020b2/LICENSE.TXT",
+      "sha256": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    }
+  },
+  "derived_input": {
+    "path": "workload/inputs/c20_bowl_scf.nw",
+    "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+  },
+  "reference_energy_hartree": -756.702486554389,
+  "tolerance_hartree": 1e-06,
+  "method": "RHF singlet, charge 0, spherical cc-pVDZ, C1, 280 basis functions",
+  "changes": [
+    "Remove machine-specific permanent_dir; use fresh per-case directory.",
+    "Rename title and start prefix; make neutral charge explicit.",
+    "Keep geometry, basis, memory settings and SCF convergence settings.",
+    "Remove TCE/CCSD and integral-export settings; run task scf energy only."
+  ],
+  "timing_note": "Upstream output is a 128-rank NWChem 6.8 SCF+CCSD job. Its total time is not a timing reference for this SCF-only workload."
+}

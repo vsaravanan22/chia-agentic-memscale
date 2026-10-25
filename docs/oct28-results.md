@@ -225,11 +225,12 @@ remain for compatibility and do not indicate implemented memory management.
 
 The manuscript still needs these results, their limitations, the revised title,
 and an exact mapping of tests to its invariant definitions. No manuscript source
-is included in this repository. A validated larger workload is still outstanding:
-only the water 6-31g input/reference is present, and no validated 1H9T case has
-been run here. A larger basis or molecule needs its own charge/spin settings,
-reference energy and tolerance, resource limits, and calibration before a new
-study is frozen. It must not reuse the water reference energy.
+is included in this repository. The subsequent [C20 RHF/cc-pVDZ calibration](c20-results.md)
+completed two scientifically validated single-case trials in job `60199152`,
+with mean harness time 1428.469 seconds. That study uses its own input,
+reference and tolerance, and measures execution on a larger workload. It makes
+no Gemini decisions and does not establish policy benefit or decision-loop
+overhead on C20. No validated 1H9T case has been run here.
 
 Bayesian optimization and a stronger LLM remain lower-priority comparisons.
 Conclusions here concern the recorded lightweight Flash-Lite configuration.

@@ -1,0 +1,939 @@
+{
+  "successful_job_id": "60199152",
+  "sessions": [
+    {
+      "job_id": "60082065",
+      "session": "results/c20-calibration-60082065-1792569352291183128",
+      "statuses": [
+        "failed",
+        "not_started"
+      ],
+      "reported_passed": false
+    },
+    {
+      "job_id": "60147818",
+      "session": "results/c20-calibration-60147818-1792739163050018540",
+      "statuses": [
+        "not_started",
+        "not_started"
+      ],
+      "reported_passed": false
+    },
+    {
+      "job_id": "60148419",
+      "session": "results/c20-calibration-60148419-1792741445359845595",
+      "statuses": [
+        "not_started",
+        "not_started"
+      ],
+      "reported_passed": false
+    },
+    {
+      "job_id": "60197597",
+      "session": "results/c20-calibration-60197597-1792826878888787032",
+      "statuses": [
+        "failed",
+        "not_started"
+      ],
+      "reported_passed": false
+    },
+    {
+      "job_id": "60199152",
+      "session": "results/c20-calibration-60199152-1792828523151665996",
+      "statuses": [
+        "success",
+        "success"
+      ],
+      "reported_passed": true
+    }
+  ],
+  "files": [
+    {
+      "path": "results/c20-calibration-1800s-plan.json",
+      "bytes": 2626,
+      "sha256": "cb7ebe0ab8277cc19819e331c3a8c73786ba06b5996a2e9b97d75ec6321e5b1d"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/plan.json",
+      "bytes": 2222,
+      "sha256": "3b4bc2ce8ee015b7c40efd31280c67cfb864cd47130ff8c7deea66c12141a177"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/provenance.json",
+      "bytes": 3014,
+      "sha256": "8f49c3595b760b79d6852f35965305c4af50fd0d5434e8aa97e42d9f8f144667"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/provenance/c20-bowl/LICENSE.TXT",
+      "bytes": 1388,
+      "sha256": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/provenance/c20-bowl/reference.json",
+      "bytes": 1914,
+      "sha256": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/provenance/c20-bowl/upstream.nw",
+      "bytes": 1482,
+      "sha256": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/provenance/c20-bowl/upstream.out",
+      "bytes": 499858,
+      "sha256": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/scripts/analyze_policy_comparison.py",
+      "bytes": 28467,
+      "sha256": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/scripts/run_policy_confirmation.py",
+      "bytes": 19603,
+      "sha256": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/scripts/run_workload_calibration.py",
+      "bytes": 20152,
+      "sha256": "726f5915d9cef029c493ce341ba17785ea4cb864d5192b13deef34a5c7047eca"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/scripts/run_workload_calibration.sbatch",
+      "bytes": 881,
+      "sha256": "8c2e191dc39c268c91006212cedff6a5503ee90d640f7b21d2cee455fbcf29bb"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/tools/experiment_session.py",
+      "bytes": 20027,
+      "sha256": "e97ea6e113be432f8427d407933501ca5815c301415996f46d015902561b470a"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/tools/policy_costs.py",
+      "bytes": 13271,
+      "sha256": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/workload/inputs/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/source-snapshot/workload/nwchem_benchmark.py",
+      "bytes": 9550,
+      "sha256": "887b984f11ca6222bb1906e1b993ed1f1c36d78c73012be9aa472ff26813de25"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/state.json",
+      "bytes": 1039,
+      "sha256": "8684b870ea69526899b6349bbf86ab34e75a70f30772a637e6aa2f1852fd0d87"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/trial-0001/cases/nwchem-p0-r0-irda5gd3/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/trial-0001/launcher.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60082065-1792569352291183128/validation.json",
+      "bytes": 148,
+      "sha256": "79da7755e9d7cc532c7f9c5d0a210577a657226dc47dd8a84daef7851257ebe5"
+    },
+    {
+      "path": "results/c20-calibration-60082065.err",
+      "bytes": 454,
+      "sha256": "dd3202c2cb2a5111b7f487c49365391dbedabeab1ac87a3b5165ff056f4f5d5a"
+    },
+    {
+      "path": "results/c20-calibration-60082065.log",
+      "bytes": 221,
+      "sha256": "ce0f8c675d78a555aef8edad87d3af7d5b1a428559a416ebac0f504127044d72"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/plan.json",
+      "bytes": 2222,
+      "sha256": "41bbabb4e7f3c6577b74bbcca55a040fd50cf84755d15b4903606253bd6ee080"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/provenance.json",
+      "bytes": 1613,
+      "sha256": "1ab6680606bc0529fad07a9cf18a3f123a7d1d662c573a7b55dab97487aef91c"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/slurm-accounting.txt",
+      "bytes": 225,
+      "sha256": "054fbb8753638e04fa04f5e074df44e9716b2aeddf83940c42a0dcb5186faa23"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/provenance/c20-bowl/LICENSE.TXT",
+      "bytes": 1388,
+      "sha256": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/provenance/c20-bowl/reference.json",
+      "bytes": 1914,
+      "sha256": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/provenance/c20-bowl/upstream.nw",
+      "bytes": 1482,
+      "sha256": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/provenance/c20-bowl/upstream.out",
+      "bytes": 499858,
+      "sha256": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/scripts/analyze_policy_comparison.py",
+      "bytes": 28467,
+      "sha256": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/scripts/run_policy_confirmation.py",
+      "bytes": 19603,
+      "sha256": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/scripts/run_workload_calibration.py",
+      "bytes": 20152,
+      "sha256": "726f5915d9cef029c493ce341ba17785ea4cb864d5192b13deef34a5c7047eca"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/scripts/run_workload_calibration.sbatch",
+      "bytes": 881,
+      "sha256": "8c2e191dc39c268c91006212cedff6a5503ee90d640f7b21d2cee455fbcf29bb"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/tools/experiment_session.py",
+      "bytes": 20758,
+      "sha256": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/tools/policy_costs.py",
+      "bytes": 13271,
+      "sha256": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/workload/inputs/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/source-snapshot/workload/nwchem_benchmark.py",
+      "bytes": 10062,
+      "sha256": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/state.json",
+      "bytes": 948,
+      "sha256": "568a6b966a06adedbad9be58f9355372a418fc7d3e0ba54e1190e61fb6076117"
+    },
+    {
+      "path": "results/c20-calibration-60147818-1792739163050018540/validation.json",
+      "bytes": 148,
+      "sha256": "b4f21e2e0bde7120c07234297b7af2c601ee6dcb1bc12d4158b9783f7f58c2e3"
+    },
+    {
+      "path": "results/c20-calibration-60147818.err",
+      "bytes": 287,
+      "sha256": "b09341cd277de86cdad8fded4ddac34840ee878bdac3c52be67b13a1a9feac48"
+    },
+    {
+      "path": "results/c20-calibration-60147818.log",
+      "bytes": 221,
+      "sha256": "4c92f61019a4eff9e4aa120b2932ac0a98cf7427d3c27195e33594f98c6d78e5"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/failure.txt",
+      "bytes": 884,
+      "sha256": "92ef7448bdcd5edd077a5d9ef5716baad7d2072d4db03e60933d17726b00a3dd"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/plan.json",
+      "bytes": 2222,
+      "sha256": "b501a7ac81163e2b941fa50cef6f11dac95558df045a7f7f485e0aa024cd4de8"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/provenance.json",
+      "bytes": 1657,
+      "sha256": "9a94fbcb5a5d35f9aa9f4d823b3a35cf948959e9c394de7592276f168edafdba"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-diagnostics.json",
+      "bytes": 1264,
+      "sha256": "1dc57671a177b5516cb54ab8750d43f85a98a4104177b9315f256790619d86d2"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard.log",
+      "bytes": 1662,
+      "sha256": "2639fe691d170f8650a02346bdef8b1310c60c474ac31e8573523f146b8ec778"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard_agent.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard_agent.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/dashboard_agent.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/gcs_server.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/gcs_server.out",
+      "bytes": 18706,
+      "sha256": "2f358022a1a2d346e15d0c048ead59a58d9ef545803873b5ab186609e9c95a22"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/monitor.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/monitor.log",
+      "bytes": 3613,
+      "sha256": "3c2108eb0d6ecf1541573c47a6f7d6c5c6c606af61dfe3a527dad7b8644e8817"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/monitor.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/raylet.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/raylet.out",
+      "bytes": 2678,
+      "sha256": "b9326eca2d555fc3e97945138f7e8d15730c3e9cb5dcf6a5cd7447c91f28f27a"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/runtime_env_agent.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/runtime_env_agent.log",
+      "bytes": 283,
+      "sha256": "b2b8561f7a10feedb734fc1904ffe505b071dc14710fa68997ac42693abdb86c"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/ray-logs/session_2026-10-23_00-44-08_294493_400285/runtime_env_agent.out",
+      "bytes": 79,
+      "sha256": "a3ba34807168137c94d1e81977cdd52e89b8a57452fc2b6f64cc024d9678f49b"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/provenance/c20-bowl/LICENSE.TXT",
+      "bytes": 1388,
+      "sha256": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/provenance/c20-bowl/reference.json",
+      "bytes": 1914,
+      "sha256": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/provenance/c20-bowl/upstream.nw",
+      "bytes": 1482,
+      "sha256": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/provenance/c20-bowl/upstream.out",
+      "bytes": 499858,
+      "sha256": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/scripts/analyze_policy_comparison.py",
+      "bytes": 28467,
+      "sha256": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/scripts/run_policy_confirmation.py",
+      "bytes": 19603,
+      "sha256": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/scripts/run_workload_calibration.py",
+      "bytes": 23603,
+      "sha256": "3046867719ab91fbe2a8900b0d4bd2f147d0c416bb023d5ef5685546f55f520f"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/scripts/run_workload_calibration.sbatch",
+      "bytes": 881,
+      "sha256": "8c2e191dc39c268c91006212cedff6a5503ee90d640f7b21d2cee455fbcf29bb"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/tools/experiment_session.py",
+      "bytes": 20758,
+      "sha256": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/tools/policy_costs.py",
+      "bytes": 13271,
+      "sha256": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/workload/inputs/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/source-snapshot/workload/nwchem_benchmark.py",
+      "bytes": 10062,
+      "sha256": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/state.json",
+      "bytes": 1013,
+      "sha256": "b6afd4a6b4781d8823303eed0bffd1396bc05f6895665ee73cd87b945cdba079"
+    },
+    {
+      "path": "results/c20-calibration-60148419-1792741445359845595/validation.json",
+      "bytes": 149,
+      "sha256": "323d753598c2ba0d9786649933770ecf7ec2df48ff20bc398dd7c270b4fb8c8e"
+    },
+    {
+      "path": "results/c20-calibration-60148419.err",
+      "bytes": 1172,
+      "sha256": "b03d21de417365a0bf190879d271e588cacbeb174083e16aa7b05b66ee0dadbe"
+    },
+    {
+      "path": "results/c20-calibration-60148419.log",
+      "bytes": 278,
+      "sha256": "d8e1408f2ee018fcbf2ebcbc20a55c4056561bed4998fdab85bb662d6e8ba168"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/failure.txt",
+      "bytes": 292,
+      "sha256": "8852910cc2cf1b5d7f635bf68a89ead7f763ae566055481f820a2a0ef45c5bc8"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/plan.json",
+      "bytes": 2625,
+      "sha256": "f9b2edf5b4e29c52f75e8e5990ed84138bc651a5442adff8ca9ed5c5e9fd440f"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/port-forwarding.json",
+      "bytes": 674,
+      "sha256": "16165ece1fc7f9eecfa2ff35c8d308c96b8f04dbffc99eb9fdaf68bc842262ef"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/provenance.json",
+      "bytes": 6085,
+      "sha256": "e0312abb90ad3c2301f8635ea1675b44200e09324e53ca21af280789c5c825e7"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-diagnostics.json",
+      "bytes": 1264,
+      "sha256": "120756ff53af575057a8ba38d78848dec1063795388d7e5f3270aaa8947e8bd6"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard.log",
+      "bytes": 1750,
+      "sha256": "a6368bdf1fffafb32f22e86380668a42a124189589193602c29c3706ea7690c8"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard_agent.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard_agent.log",
+      "bytes": 7410,
+      "sha256": "3b90c6d9a84630bf62c4e81236478d72ed0180cd69d203e18c82b3f3b65b682a"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard_agent.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/gcs_server.err",
+      "bytes": 285,
+      "sha256": "9178e3c7fa263d3a4d8b1051fe4b5e8398fd2086c89bb7dc3eb9560b74b7ae6d"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/gcs_server.out",
+      "bytes": 260213,
+      "sha256": "86174d2f4c234e3a4a9aabdb67accb9fd3fee43a060af78ad21a4f852e68f390"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/monitor.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/monitor.log",
+      "bytes": 113373,
+      "sha256": "140ad23502724622dca400b80c4c23c54abe2f3caf82886f788787c91dbe005b"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/monitor.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/raylet.err",
+      "bytes": 1024,
+      "sha256": "50e9747d7204723b67627bc601eb1296979459f8e752f2127875636868523fd8"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/raylet.out",
+      "bytes": 279844,
+      "sha256": "759d00fc1bde009f142752d8bcdefe68005762022ab94553c292c9731edb2732"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/runtime_env_agent.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/runtime_env_agent.log",
+      "bytes": 2176,
+      "sha256": "730b8a6b864fe2b6100ece16388db821be05b78348de70e2012d5bc33a2b99a0"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-logs/session_2026-10-24_00-29-06_010589_707705/runtime_env_agent.out",
+      "bytes": 79,
+      "sha256": "341bc9ed4916d2a71aa856fecc09e9a252a2f6dcfa5013c63c977c8de6b91e81"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/ray-start.log",
+      "bytes": 1882,
+      "sha256": "8b1368b374c6d00ca7080af09df24ac447789be3752e3e59179fbddeca09c264"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/slurm-accounting.txt",
+      "bytes": 270,
+      "sha256": "21ea115c5a2169e77adbc3da8dacf2b87b56fed2eed44c7de9f899520211abe9"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/provenance/c20-bowl/LICENSE.TXT",
+      "bytes": 1388,
+      "sha256": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/provenance/c20-bowl/reference.json",
+      "bytes": 1914,
+      "sha256": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/provenance/c20-bowl/upstream.nw",
+      "bytes": 1482,
+      "sha256": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/provenance/c20-bowl/upstream.out",
+      "bytes": 499858,
+      "sha256": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/scripts/analyze_policy_comparison.py",
+      "bytes": 28467,
+      "sha256": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/scripts/check_ray_agent_ports.py",
+      "bytes": 11820,
+      "sha256": "377729ce4ab7a352bd2a52701e4fd502f905bf119523835fbe57984a2d6de05e"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/scripts/ray_port_forwarding.py",
+      "bytes": 7698,
+      "sha256": "b25e6c4f13adbfc90e47294771438035c433144641175877de6dccd1ead1e848"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/scripts/run_policy_confirmation.py",
+      "bytes": 19603,
+      "sha256": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/scripts/run_workload_calibration.py",
+      "bytes": 25946,
+      "sha256": "2bf2238f7bf920a8e9fdf54403adb9213f3117dcca9c42c2613c5231e24a9e9f"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/scripts/run_workload_calibration.sbatch",
+      "bytes": 921,
+      "sha256": "ee8b5575c5a40b71162fc235344defdbd42510116697992a2e0c95b4d7c81c49"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/tools/experiment_session.py",
+      "bytes": 20758,
+      "sha256": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/tools/policy_costs.py",
+      "bytes": 13271,
+      "sha256": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/workload/inputs/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/source-snapshot/workload/nwchem_benchmark.py",
+      "bytes": 10062,
+      "sha256": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/state.json",
+      "bytes": 1100,
+      "sha256": "8414b908d821231f5b08d51eeaf070027bc28874324492ad989184495f6075ff"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/trial-0001/cases/nwchem-p0-r0-5adh519t/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/trial-0001/cases/nwchem-p0-r0-5adh519t/launch.json",
+      "bytes": 589,
+      "sha256": "3b0a550953b0196ce7917a8805e11d3b05739131542aaad89b19e2a985a8f1d3"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/trial-0001/cases/nwchem-p0-r0-5adh519t/output.txt",
+      "bytes": 27852,
+      "sha256": "18179fdd74776645a7d52baaa0a0419f5380dc8c705bfa833725e4632310d43c"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/trial-0001/failure.txt",
+      "bytes": 1759,
+      "sha256": "2f3f40acf54531509e3f53a05c1e4dee4c9c7a17c5accb8cbd4993dce33ed99b"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/trial-0001/launcher.log",
+      "bytes": 1011,
+      "sha256": "5dc113b240ef3be4826efd80b21aab8655547f036145324c23238fae770d0f96"
+    },
+    {
+      "path": "results/c20-calibration-60197597-1792826878888787032/validation.json",
+      "bytes": 148,
+      "sha256": "728c9ad5cd2abb1bc1f367f64e2bbdb4916529162e6a3231f03f5f2cc9028d32"
+    },
+    {
+      "path": "results/c20-calibration-60197597.err",
+      "bytes": 3140,
+      "sha256": "f93762ae99aee1920e9a31cea4e1357e716a6856427a212a9153eb1582147521"
+    },
+    {
+      "path": "results/c20-calibration-60197597.log",
+      "bytes": 342,
+      "sha256": "80999af2184acebfe07ce0d87df39b1c8f13d584339e2cab0f44289b7cd80250"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/plan.json",
+      "bytes": 2626,
+      "sha256": "cb7ebe0ab8277cc19819e331c3a8c73786ba06b5996a2e9b97d75ec6321e5b1d"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/port-forwarding.json",
+      "bytes": 674,
+      "sha256": "bb89933cad4dfd5af733f3ce4acc5dae6fd726152c4944b16ec7afbc6de34fc3"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/provenance.json",
+      "bytes": 6085,
+      "sha256": "09300522cc5b17c6bded2c75ed711d2fcd80c9b8cea2fcad2cd81ae3fa7c4b5b"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-diagnostics.json",
+      "bytes": 1264,
+      "sha256": "a389135d0ad8cb634f16f1bbb4e6f00fec9f02f842b6c899056d3aea3b97f71f"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/dashboard.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/dashboard.log",
+      "bytes": 1750,
+      "sha256": "3f012bb87fd86e748b0b85295fe3aa6037ed260eccde296bf0cfdd25b9acea0a"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/dashboard.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/dashboard_agent.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/dashboard_agent.log",
+      "bytes": 7410,
+      "sha256": "52bfa52ea4427a6f74f1d11758e6682d70df004d323e0022e976486b5d44ea46"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/dashboard_agent.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/gcs_server.err",
+      "bytes": 285,
+      "sha256": "18af4b1ad1efed1a5d2e4e23d1d6616660c7488d1cd77c4c9832fa68c57422d0"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/gcs_server.out",
+      "bytes": 1059210,
+      "sha256": "3fc28c3aec6a924e1e40bc1d60dac627189e25b8b0ece07f9200d6bbd132b02b"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/monitor.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/monitor.log",
+      "bytes": 473722,
+      "sha256": "344b3282241aff9a4e333ca2c832866192849613a2e93aaffd7d290ad0c3c4ef"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/monitor.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/raylet.err",
+      "bytes": 1024,
+      "sha256": "ef941d2fc388fe7b6b2bc9c9b8b4a27af6e41e9fa58430c3ec53d233b41ef4ca"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/raylet.out",
+      "bytes": 1166425,
+      "sha256": "e58a359d0f9676cbc56230160acf88821276b8b9edbc4eaa75d31ae55b0d2237"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/runtime_env_agent.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/runtime_env_agent.log",
+      "bytes": 2176,
+      "sha256": "5bf72189c019d7b6be5d87bedda32cd2b0664b233cb69177bb1ae1d94971589d"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-logs/session_2026-10-24_00-56-35_250193_951129/runtime_env_agent.out",
+      "bytes": 79,
+      "sha256": "f81ecca70bf02d2d49ebfe68f7d58be31ba9773d6c60a10e4a05015ec3e15100"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/ray-start.log",
+      "bytes": 1882,
+      "sha256": "a428fa03964ea470889ff2522df674d4b0789cfad4a437edf48cee903b60fc14"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/slurm-accounting.txt",
+      "bytes": 315,
+      "sha256": "bb9b0c5bfac16bde7973640cdd653e7011e414407cb1117be658e4b2dbe1c5fc"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/provenance/c20-bowl/LICENSE.TXT",
+      "bytes": 1388,
+      "sha256": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/provenance/c20-bowl/reference.json",
+      "bytes": 1914,
+      "sha256": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/provenance/c20-bowl/upstream.nw",
+      "bytes": 1482,
+      "sha256": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/provenance/c20-bowl/upstream.out",
+      "bytes": 499858,
+      "sha256": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/scripts/analyze_policy_comparison.py",
+      "bytes": 28467,
+      "sha256": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/scripts/check_ray_agent_ports.py",
+      "bytes": 11820,
+      "sha256": "377729ce4ab7a352bd2a52701e4fd502f905bf119523835fbe57984a2d6de05e"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/scripts/ray_port_forwarding.py",
+      "bytes": 7698,
+      "sha256": "b25e6c4f13adbfc90e47294771438035c433144641175877de6dccd1ead1e848"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/scripts/run_policy_confirmation.py",
+      "bytes": 19603,
+      "sha256": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/scripts/run_workload_calibration.py",
+      "bytes": 25960,
+      "sha256": "2714718281400fe3f66240c41089bcd24866e5fac488a109670567c3d4673aa6"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/scripts/run_workload_calibration.sbatch",
+      "bytes": 923,
+      "sha256": "c74b72ca1d87f16e6176564e47e6b5cd57e8a599a0c8f9ab1e6af847ac7d5a9b"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/tools/experiment_session.py",
+      "bytes": 20758,
+      "sha256": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/tools/policy_costs.py",
+      "bytes": 13271,
+      "sha256": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/workload/inputs/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/source-snapshot/workload/nwchem_benchmark.py",
+      "bytes": 10062,
+      "sha256": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/state.json",
+      "bytes": 2965,
+      "sha256": "f98aa510b99a44e64ae0e8a6fb36e3507dbc720a23f00b07bf49f73eaabdc0cc"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0001/cases/nwchem-p0-r0-6zyua0eh/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0001/cases/nwchem-p0-r0-6zyua0eh/launch.json",
+      "bytes": 589,
+      "sha256": "afef138de12a438a5f2890eb4c877dd78f25d33183a7e13d7b829749b019a279"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0001/cases/nwchem-p0-r0-6zyua0eh/output.txt",
+      "bytes": 74266,
+      "sha256": "af5d5870f3f1c58f558f1912898e31785429aa7353f7923b9aec9176f242b317"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0001/launcher.log",
+      "bytes": 2409,
+      "sha256": "52f6bd4791e94a688f75ab84e86629b359c3016d2a3a13f92f893f2b6513e674"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0001/measurement.json",
+      "bytes": 1423,
+      "sha256": "da2de7e6ea0e3de0130b7e9e7c93aa89affa5a29153e3f38216b63ab9275fc90"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0002/cases/nwchem-p0-r0-fcqejc0t/c20_bowl_scf.nw",
+      "bytes": 1426,
+      "sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0002/cases/nwchem-p0-r0-fcqejc0t/launch.json",
+      "bytes": 589,
+      "sha256": "c23b6676f464b1bf8fd1cca83d3d9caaf89a73b96cda4775cd52d2aa4c05089e"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0002/cases/nwchem-p0-r0-fcqejc0t/output.txt",
+      "bytes": 74266,
+      "sha256": "3592875229a31255b168e066247eff54aa7924bd0204992b8dbc865862a4f838"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0002/launcher.log",
+      "bytes": 2408,
+      "sha256": "a8dbe6b9c79a45cf2c5c20c45972ee1f25128b1ea4f18209f4c479826d59c6f3"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/trial-0002/measurement.json",
+      "bytes": 1423,
+      "sha256": "8c049bd3c138a3a5ba901595a80e10f91a7de539ff9df2e9d969b0d85a4308c7"
+    },
+    {
+      "path": "results/c20-calibration-60199152-1792828523151665996/validation.json",
+      "bytes": 148,
+      "sha256": "2e305153a4ce9b3a5e5fc331f4435d45f1539675dc573c0568c4731333f7cfcc"
+    },
+    {
+      "path": "results/c20-calibration-60199152.err",
+      "bytes": 567,
+      "sha256": "4853f4631e322ce3fdc3a912ef16b6a0446bd6dea98b0b3c427d114fb1e532f2"
+    },
+    {
+      "path": "results/c20-calibration-60199152.log",
+      "bytes": 441,
+      "sha256": "0b7d5f8b2930f7ea4a8af3c000eedd2e96ccc675ecde82c9f8df87b1c89918fd"
+    },
+    {
+      "path": "results/c20-calibration-analysis-60199152/summary.json",
+      "bytes": 931,
+      "sha256": "0b383240b33f6e0cb2d1e5bf4b2b28d86f8d0fdd0d428456883014b2992c1a41"
+    },
+    {
+      "path": "results/c20-calibration-forwarded-plan.json",
+      "bytes": 2625,
+      "sha256": "f9b2edf5b4e29c52f75e8e5990ed84138bc651a5442adff8ca9ed5c5e9fd440f"
+    },
+    {
+      "path": "results/c20-calibration-plan.json",
+      "bytes": 2222,
+      "sha256": "3b4bc2ce8ee015b7c40efd31280c67cfb864cd47130ff8c7deea66c12141a177"
+    },
+    {
+      "path": "results/c20-calibration-ray-logs-plan.json",
+      "bytes": 2222,
+      "sha256": "b501a7ac81163e2b941fa50cef6f11dac95558df045a7f7f485e0aa024cd4de8"
+    },
+    {
+      "path": "results/c20-calibration-streamed-plan.json",
+      "bytes": 2222,
+      "sha256": "41bbabb4e7f3c6577b74bbcca55a040fd50cf84755d15b4903606253bd6ee080"
+    }
+  ],
+  "total_bytes": 6817820,
+  "note": "Successful session re-audited against saved report. Earlier attempts are retained as failures, not re-audited with the new protocol. Manifest excludes itself and docs. NWChem restart/integral scratch files are omitted; source snapshots and raw scientific evidence are retained."
+}

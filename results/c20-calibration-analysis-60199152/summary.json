@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "job_id": "60199152",
+  "plan_sha256": "79b558cadedbf3423d3c97f6a20c845d14725c9f5e2e391a614472e2383b3698",
+  "workload": "nwchem_c20_bowl_cc-pvdz_rhf",
+  "trials": [
+    {
+      "trial_id": "trial-0001",
+      "status": "success",
+      "experiment_elapsed_s": 1430.007,
+      "energy_hartree": -756.702486554343,
+      "worker_elapsed_s": 1433.1908046430035,
+      "attempt_wait_elapsed_s": 1433.281754969008
+    },
+    {
+      "trial_id": "trial-0002",
+      "status": "success",
+      "experiment_elapsed_s": 1426.931,
+      "energy_hartree": -756.702486554343,
+      "worker_elapsed_s": 1431.744109043997,
+      "attempt_wait_elapsed_s": 1432.1041414539795
+    }
+  ],
+  "errors": [],
+  "mean_single_case_harness_s": 1428.469,
+  "sample_sd_single_case_harness_s": 2.1750604589298357,
+  "note": "Two technical calibration runs; no discarded warmup, policy comparison, or measured decision-loop overhead."
+}
