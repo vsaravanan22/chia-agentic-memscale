@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "kind": "c20-calibration",
+  "backend": "perlmutter",
+  "workload": "nwchem_c20_bowl_cc-pvdz_rhf",
+  "trial_timeout_s": 1800,
+  "mpi_tasks": 2,
+  "cpus_per_task": 2,
+  "warmup_trials": 0,
+  "ray_startup": {
+    "mode": "explicit-ports-with-forwarding",
+    "registration_wait_s": 120,
+    "cli_timeout_s": 180,
+    "agent_timeout_s": 90,
+    "worker_ready_timeout_s": 120
+  },
+  "reference_energy_hartree": -756.702486554389,
+  "tolerance_hartree": 1e-06,
+  "trials": [
+    {
+      "trial_id": "trial-0001",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      }
+    },
+    {
+      "trial_id": "trial-0002",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      }
+    }
+  ],
+  "image_id": "60433343d8c7b7d2d308dc7965f479f456670bfc4c8059a3fdde624e862b6d16",
+  "runtime_sha256": {
+    "scripts/run_workload_calibration.py": "2714718281400fe3f66240c41089bcd24866e5fac488a109670567c3d4673aa6",
+    "scripts/run_workload_calibration.sbatch": "c74b72ca1d87f16e6176564e47e6b5cd57e8a599a0c8f9ab1e6af847ac7d5a9b",
+    "scripts/check_ray_agent_ports.py": "377729ce4ab7a352bd2a52701e4fd502f905bf119523835fbe57984a2d6de05e",
+    "scripts/ray_port_forwarding.py": "b25e6c4f13adbfc90e47294771438035c433144641175877de6dccd1ead1e848",
+    "tools/experiment_session.py": "5280ce5cc98486baee0782b17fd1af092f6ddec53fbe7bebcc8ec582b4546d86",
+    "workload/nwchem_benchmark.py": "b3def7003a0c9860e4516a820a6e091e6154b8b7371a071cf5d5940b984db1df",
+    "workload/inputs/c20_bowl_scf.nw": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb",
+    "scripts/run_policy_confirmation.py": "ec8693877f2519c354f29c3bdcdf9bf97e047e61d119a3223b19f2665a383956",
+    "scripts/analyze_policy_comparison.py": "c5ac17d598b996f63f6cf5d4dfd31cd4d490a5d8ba15eda6feabab8124857537",
+    "tools/policy_costs.py": "4e914229773f1767145e05e272c6350662b3f3b80cae2d5910876eb39dd79031",
+    "provenance/c20-bowl/reference.json": "1457d0f9950db052c0716ca05c2e3dd971f10a9ec1bf0661f11a88addc367be3",
+    "provenance/c20-bowl/upstream.nw": "c0bdfd67330540f5b0bc6af497a42ef7a70597b4fa82678be488dea445d7cfda",
+    "provenance/c20-bowl/upstream.out": "71b916183f2485e94ea2c8e9c4025e3645908df3b6f7329900c10f8c3c0c17a7",
+    "provenance/c20-bowl/LICENSE.TXT": "1d39a9817c57b17343d6706c88d8b4386f980e2049687c0c38efcd57dedc9aee"
+  },
+  "plan_sha256": "79b558cadedbf3423d3c97f6a20c845d14725c9f5e2e391a614472e2383b3698"
+}

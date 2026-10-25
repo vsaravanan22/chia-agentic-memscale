@@ -19,8 +19,10 @@ class NativeTests(unittest.TestCase):
             args = SimpleNamespace(input=source, mpi_tasks=2, cpus_per_task=1,
                                    image='unused', backend='native',
                                    nwchem='/usr/bin/nwchem.openmpi', cpu_slots=slots)
-            with patch('workload.nwchem_benchmark.subprocess.run', return_value=Mock(
-                    returncode=0, stdout='Total SCF energy = -75.9839975704', stderr='')) as run:
+            def fake_process(command, **kwargs):
+                kwargs['stdout'].write(b'Total SCF energy = -75.9839975704\n')
+                return Mock(returncode=0)
+            with patch('workload.nwchem_benchmark.subprocess.run', side_effect=fake_process) as run:
                 result = run_case('p0-r0', 0, 0, args, root)
             self.assertTrue(result['passed'])
             self.assertEqual(run.call_args.args[0], ['taskset', '--cpu-list', '2,4',

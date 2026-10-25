@@ -1,0 +1,22 @@
+{
+  "ray_temp_dir": "/tmp/chia-ray-dlyd5_fm",
+  "files": [
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/raylet.out",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/raylet.err",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/gcs_server.out",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/gcs_server.err",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard.log",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard.out",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard.err",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard_agent.log",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard_agent.out",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/dashboard_agent.err",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/runtime_env_agent.log",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/runtime_env_agent.out",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/runtime_env_agent.err",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/monitor.log",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/monitor.out",
+    "ray-logs/session_2026-10-24_00-29-06_010589_707705/monitor.err"
+  ],
+  "errors": []
+}

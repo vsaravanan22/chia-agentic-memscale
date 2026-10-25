@@ -1,0 +1,4 @@
+# Preserve the byte-for-byte upstream fixtures, including original whitespace.
+upstream.out binary
+LICENSE.TXT binary
+upstream.nw binary

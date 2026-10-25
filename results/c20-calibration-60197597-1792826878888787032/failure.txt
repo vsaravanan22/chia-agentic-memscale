@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/global/u1/m/makhatri/chia-agentic-memscale/scripts/run_workload_calibration.py", line 282, in run_study
+    raise RuntimeError("Worker failed; inspect the saved trial/launcher.log")
+RuntimeError: Worker failed; inspect the saved trial/launcher.log

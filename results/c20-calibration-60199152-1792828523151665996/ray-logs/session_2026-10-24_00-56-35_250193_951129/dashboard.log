@@ -1,0 +1,12 @@
+2026-10-24 00:56:59,493	INFO utils.py:307 -- Get all modules by type: DashboardHeadModule
+2026-10-24 00:57:15,984	INFO utils.py:340 -- Available modules: [<class 'ray.dashboard.modules.usage_stats.usage_stats_head.UsageStatsHead'>]
+2026-10-24 00:57:15,985	INFO head.py:235 -- DashboardHeadModules to load: {'UsageStatsHead'}.
+2026-10-24 00:57:15,985	INFO head.py:238 -- Loading DashboardHeadModule: <class 'ray.dashboard.modules.usage_stats.usage_stats_head.UsageStatsHead'>.
+2026-10-24 00:57:15,985	INFO head.py:242 -- Loaded 1 dashboard head modules: [<ray.dashboard.modules.usage_stats.usage_stats_head.UsageStatsHead object at 0x7f9e99c93d60>].
+2026-10-24 00:57:15,985	INFO utils.py:307 -- Get all modules by type: SubprocessModule
+2026-10-24 00:57:16,544	INFO utils.py:340 -- Available modules: [<class 'ray.dashboard.modules.metrics.metrics_head.MetricsHead'>, <class 'ray.dashboard.modules.data.data_head.DataHead'>, <class 'ray.dashboard.modules.event.event_head.EventHead'>, <class 'ray.dashboard.modules.job.job_head.JobHead'>, <class 'ray.dashboard.modules.node.node_head.NodeHead'>, <class 'ray.dashboard.modules.reporter.reporter_head.ReportHead'>, <class 'ray.dashboard.modules.serve.serve_head.ServeHead'>, <class 'ray.dashboard.modules.state.state_head.StateHead'>, <class 'ray.dashboard.modules.train.train_head.TrainHead'>]
+2026-10-24 00:57:16,544	INFO head.py:296 -- Loaded 0 subprocess modules: [].
+2026-10-24 00:57:16,545	INFO head.py:311 -- Starting dashboard metrics server on port 44227
+2026-10-24 00:57:16,551	INFO head.py:444 -- http server disabled.
+2026-10-24 00:57:18,584	INFO usage_stats_head.py:200 -- Usage reporting is disabled.
+2026-10-24 01:46:38,304	WARNING dashboard.py:285 -- Exiting with SIGTERM immediately...

@@ -1,0 +1,41 @@
+{
+  "plan_sha256": "92f1b9c67e9dd31423747e9bb6feba09dca0d1686ce5ccf819731be49e6c8bb9",
+  "attempts": [
+    {
+      "trial_id": "trial-0001",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      },
+      "status": "not_started",
+      "attempt_wait_elapsed_s": null,
+      "worker_elapsed_s": null
+    },
+    {
+      "trial_id": "trial-0002",
+      "configuration": {
+        "partitions": 1,
+        "executors": 1,
+        "replication": 1,
+        "batch_size": 1,
+        "placement": "single-node"
+      },
+      "status": "not_started",
+      "attempt_wait_elapsed_s": null,
+      "worker_elapsed_s": null
+    }
+  ],
+  "stage": "ray_startup",
+  "fatal_error_type": "Exception",
+  "fatal_error_stage": "ray_startup",
+  "validation": {
+    "passed": false,
+    "planned_trials": 2,
+    "attempted_trials": 0,
+    "successful_trials": 0,
+    "session_including_cleanup_s": 100.41822305499954
+  }
+}

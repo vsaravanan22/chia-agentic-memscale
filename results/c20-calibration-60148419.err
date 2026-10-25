@@ -1,0 +1,12 @@
+2026-10-23 00:45:45,361	INFO node.py:375 -- Failed to get node info b'GCS cannot find the node with node ID 417c234a6d5df4cc7bfa04d9d29d06927eb366b86a325999968051a7. The node registration may not be complete yet before the timeout. Try increase the RAY_raylet_start_wait_time_s config.'
+Traceback (most recent call last):
+  File "/global/u1/m/makhatri/chia-agentic-memscale/scripts/run_workload_calibration.py", line 230, in run_study
+    ray.init(address="local", num_cpus=4, num_gpus=0, include_dashboard=False,
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/client_mode_hook.py", line 104, in wrapper
+    return func(*args, **kwargs)
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/worker.py", line 1908, in init
+    _global_node = ray._private.node.Node(
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/node.py", line 377, in __init__
+    raise Exception(
+Exception: The current node timed out during startup. This could happen because some of the raylet failed to startup or the GCS has become overloaded.
+

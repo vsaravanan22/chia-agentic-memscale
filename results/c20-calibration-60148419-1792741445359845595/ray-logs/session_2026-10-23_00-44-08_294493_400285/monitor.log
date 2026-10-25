@@ -1,0 +1,25 @@
+2026-10-23 00:44:42,284	INFO monitor.py:715 -- Starting monitor using ray installation: /global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/__init__.py
+2026-10-23 00:44:42,284	INFO monitor.py:716 -- Ray version: 2.54.0
+2026-10-23 00:44:42,284	INFO monitor.py:717 -- Ray commit: 48bd1f8fa43d0e8222b0f57357b99b48c7437ed3
+2026-10-23 00:44:42,284	INFO monitor.py:718 -- Monitor started with command: ['/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/autoscaler/_private/monitor.py', '--logs-dir=/tmp/chia-ray-08ruamoj/session_2026-10-23_00-44-08_294493_400285/logs', '--logging-rotate-bytes=536870912', '--logging-rotate-backup-count=5', '--gcs-address=128.55.72.119:40597', '--stdout-filepath=/tmp/chia-ray-08ruamoj/session_2026-10-23_00-44-08_294493_400285/logs/monitor.out', '--stderr-filepath=/tmp/chia-ray-08ruamoj/session_2026-10-23_00-44-08_294493_400285/logs/monitor.err', '--monitor-ip=128.55.72.119']
+2026-10-23 00:44:42,294	INFO monitor.py:161 -- session_name: session_2026-10-23_00-44-08_294493_400285
+2026-10-23 00:44:42,296	INFO monitor.py:193 -- Starting autoscaler metrics server on port 44217
+2026-10-23 00:44:42,297	INFO monitor.py:218 -- Monitor: Started
+2026-10-23 00:44:42,416	INFO autoscaler.py:280 -- disable_node_updaters:False
+2026-10-23 00:44:42,416	INFO autoscaler.py:289 -- disable_launch_config_check:True
+2026-10-23 00:44:42,416	INFO autoscaler.py:301 -- foreground_node_launch:False
+2026-10-23 00:44:42,416	INFO autoscaler.py:311 -- worker_liveness_check:True
+2026-10-23 00:44:42,418	INFO autoscaler.py:361 -- StandardAutoscaler: {'cluster_name': 'default', 'max_workers': 0, 'upscaling_speed': 1.0, 'docker': {}, 'idle_timeout_minutes': 0, 'provider': {'type': 'readonly', 'use_node_id_as_ip': True, 'disable_launch_config_check': True}, 'auth': {}, 'available_node_types': {'ray.head.default': {'resources': {}, 'node_config': {}, 'max_workers': 0}}, 'head_node_type': 'ray.head.default', 'file_mounts': {}, 'cluster_synced_files': [], 'file_mounts_sync_continuously': False, 'rsync_exclude': [], 'rsync_filter': [], 'initialization_commands': [], 'setup_commands': [], 'head_setup_commands': [], 'worker_setup_commands': [], 'head_start_ray_commands': [], 'worker_start_ray_commands': []}
+2026-10-23 00:44:42,419	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:44:47,427	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:44:52,435	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:44:57,443	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:02,450	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:07,454	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:12,461	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:17,466	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:22,473	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:27,481	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:32,488	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:37,496	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.
+2026-10-23 00:45:42,503	INFO monitor.py:393 -- Autoscaler has not yet received load metrics. Waiting.

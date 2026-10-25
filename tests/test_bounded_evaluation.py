@@ -112,7 +112,7 @@ class EvaluationTests(unittest.TestCase):
             runner.main()
         cmd = submit.call_args.args[0]
         self.assertIn("--image=id:" + "a" * 64, cmd)
-        self.assertEqual(cmd[-2:], [str(path), str(self.root / "results")])
+        self.assertEqual(cmd[-2:], [str(path.resolve()), str((self.root / "results").resolve())])
 
     def test_audit_ranks_every_config_and_bootstraps_repeat_blocks(self):
         plan = synthetic_study(self.root / "study")

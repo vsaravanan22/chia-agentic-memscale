@@ -1,0 +1,18 @@
+{
+  "added_missing_dashboard_port": true,
+  "agent_ports": {
+    "metrics_agent_port": 45681,
+    "metrics_export_port": 43363,
+    "dashboard_agent_listen_port": 55583,
+    "runtime_env_agent_port": 43919
+  },
+  "raylet_ports": {
+    "metrics_agent_port": 45681,
+    "metrics_export_port": 43363,
+    "dashboard_agent_listen_port": 55583,
+    "runtime_env_agent_port": 43919
+  },
+  "ray_services_path": "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/site-packages/ray/_private/services.py",
+  "ray_services_sha256": "176d9877139ba0106ea8f0090f1d38deb2f76728f8d90539bbc08398ece698e5",
+  "meaning": "Validated launch arguments; not a readiness result."
+}

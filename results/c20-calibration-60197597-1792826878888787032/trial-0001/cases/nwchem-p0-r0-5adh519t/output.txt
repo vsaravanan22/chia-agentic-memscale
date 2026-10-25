@@ -1,0 +1,568 @@
+ argument  1 = c20_bowl_scf.nw
+  NWChem w/ OpenMP: maximum threads =    1
+
+
+
+============================== echo of input deck ==============================
+# Derived from the NWChem QA input; see provenance/c20-bowl/README.md.
+title "C20 bowl RHF cc-pVDZ calibration"
+echo
+start c20_bowl_scf
+
+# Use each harness case directory for restart files.
+charge 0
+
+memory stack 1600 mb heap 100 mb global 2400 mb noverify
+
+geometry  units bohr print xyz
+symmetry c1
+c  1.35226245        1.86122959        0.83638729
+c -1.35226245        1.86122959        0.83638729
+c  2.18800661       -0.71092644        0.83638729
+c -2.18800661       -0.71092644        0.83638729
+c  0.00000000       -2.30060630        0.83638729
+c  2.83299737        3.89928636        0.03475629
+c -2.83299737        3.89928636        0.03475629
+c  4.58388603       -1.48939486        0.03475629
+c -4.58388603       -1.48939486        0.03475629
+c  0.00000000       -4.81978300        0.03475629
+c  5.30637433        2.93764264       -0.43557179
+c -5.30637433        2.93764264       -0.43557179
+c  6.01965003        0.74240576       -0.43557179
+c -6.01965003        0.74240576       -0.43557179
+c  4.43362402       -4.13888039       -0.43557179
+c -4.43362402       -4.13888039       -0.43557179
+c  2.56624399       -5.49561139       -0.43557179
+c -2.56624399       -5.49561139       -0.43557179
+c  1.15410433        5.95444339       -0.43557179
+c -1.15410433        5.95444339       -0.43557179
+end
+
+basis spherical
+   * library cc-pvdz
+end
+
+scf
+thresh 1.0e-10
+tol2e 1.0e-10
+rhf
+singlet
+maxiter 200
+end
+
+task scf energy
+================================================================================
+
+
+                                         
+                                         
+
+
+             Northwest Computational Chemistry Package (NWChem) 7.2.3
+             --------------------------------------------------------
+
+
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+
+                              Copyright (c) 1994-2022
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = nid004154
+    program         = nwchem
+    date            = Sat Oct 24 07:31:20 2026
+
+    compiled        = Fri_Jul_18_01:50:47_2025
+    source          = /opt/nwchem
+    nwchem branch   = 7.2.3
+    nwchem revision = v7.2.0-beta1-813-g39ce3184b2
+    ga revision     = 5.9.1
+    use scalapack   = T
+    input           = c20_bowl_scf.nw
+    prefix          = c20_bowl_scf.
+    data base       = ./c20_bowl_scf.db
+    status          = startup
+    nproc           =        1
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =   13107194 doubles =    100.0 Mbytes
+    stack    =  209715199 doubles =   1600.0 Mbytes
+    global   =  314572800 doubles =   2400.0 Mbytes (distinct from heap & stack)
+    total    =  537395193 doubles =   4100.0 Mbytes
+    verify   = no 
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+
+  0 permanent = .
+  0 scratch   = .
+
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+                         C20 bowl RHF cc-pVDZ calibration
+                         --------------------------------
+ Turning off AUTOSYM since
+ SYMMETRY directive was detected!
+
+
+          ------
+          auto-z
+          ------
+  no constraints, skipping    0.0000000000000000     
+  no constraints, skipping    0.0000000000000000     
+
+
+                             Geometry "geometry" -> ""
+                             -------------------------
+
+ Output coordinates in a.u. (scale by  1.000000000 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 c                    6.0000     1.35226245     1.86122959     0.83638729
+    2 c                    6.0000    -1.35226245     1.86122959     0.83638729
+    3 c                    6.0000     2.18800661    -0.71092644     0.83638729
+    4 c                    6.0000    -2.18800661    -0.71092644     0.83638729
+    5 c                    6.0000     0.00000000    -2.30060630     0.83638729
+    6 c                    6.0000     2.83299737     3.89928636     0.03475629
+    7 c                    6.0000    -2.83299737     3.89928636     0.03475629
+    8 c                    6.0000     4.58388603    -1.48939486     0.03475629
+    9 c                    6.0000    -4.58388603    -1.48939486     0.03475629
+   10 c                    6.0000     0.00000000    -4.81978300     0.03475629
+   11 c                    6.0000     5.30637433     2.93764264    -0.43557179
+   12 c                    6.0000    -5.30637433     2.93764264    -0.43557179
+   13 c                    6.0000     6.01965003     0.74240576    -0.43557179
+   14 c                    6.0000    -6.01965003     0.74240576    -0.43557179
+   15 c                    6.0000     4.43362402    -4.13888039    -0.43557179
+   16 c                    6.0000    -4.43362402    -4.13888039    -0.43557179
+   17 c                    6.0000     2.56624399    -5.49561139    -0.43557179
+   18 c                    6.0000    -2.56624399    -5.49561139    -0.43557179
+   19 c                    6.0000     1.15410433     5.95444339    -0.43557179
+   20 c                    6.0000    -1.15410433     5.95444339    -0.43557179
+
+      Atomic Mass 
+      ----------- 
+
+      c                 12.000000
+
+
+ Effective nuclear repulsion energy (a.u.)    1230.6348088125
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0000000000     0.0000000000     0.0000000000
+
+
+
+                                Z-matrix (autoz)
+                                -------- 
+
+ Units are Angstrom for bonds and degrees for angles
+
+      Type          Name      I     J     K     L     M      Value
+      ----------- --------  ----- ----- ----- ----- ----- ----------
+    1 Stretch                  1     2                       1.43117
+    2 Stretch                  1     3                       1.43117
+    3 Stretch                  1     6                       1.39896
+    4 Stretch                  2     4                       1.43117
+    5 Stretch                  2     7                       1.39896
+    6 Stretch                  3     5                       1.43117
+    7 Stretch                  3     8                       1.39896
+    8 Stretch                  4     5                       1.43117
+    9 Stretch                  4     9                       1.39896
+   10 Stretch                  5    10                       1.39896
+   11 Stretch                  6    11                       1.42619
+   12 Stretch                  6    19                       1.42619
+   13 Stretch                  7    12                       1.42619
+   14 Stretch                  7    20                       1.42619
+   15 Stretch                  8    13                       1.42619
+   16 Stretch                  8    15                       1.42619
+   17 Stretch                  9    14                       1.42619
+   18 Stretch                  9    16                       1.42619
+   19 Stretch                 10    17                       1.42619
+   20 Stretch                 10    18                       1.42619
+   21 Stretch                 11    13                       1.22145
+   22 Stretch                 12    14                       1.22145
+   23 Stretch                 15    17                       1.22145
+   24 Stretch                 16    18                       1.22145
+   25 Stretch                 19    20                       1.22145
+   26 Bend                     1     2     4               108.00000
+   27 Bend                     1     2     7               124.06347
+   28 Bend                     1     3     5               108.00000
+   29 Bend                     1     3     8               124.06347
+   30 Bend                     1     6    11               106.97011
+   31 Bend                     1     6    19               106.97011
+   32 Bend                     2     1     3               108.00000
+   33 Bend                     2     1     6               124.06347
+   34 Bend                     2     4     5               108.00000
+   35 Bend                     2     4     9               124.06347
+   36 Bend                     2     7    12               106.97011
+   37 Bend                     2     7    20               106.97011
+   38 Bend                     3     1     6               124.06347
+   39 Bend                     3     5     4               108.00000
+   40 Bend                     3     5    10               124.06347
+   41 Bend                     3     8    13               106.97011
+   42 Bend                     3     8    15               106.97011
+   43 Bend                     4     2     7               124.06347
+   44 Bend                     4     5    10               124.06347
+   45 Bend                     4     9    14               106.97011
+   46 Bend                     4     9    16               106.97011
+   47 Bend                     5     3     8               124.06347
+   48 Bend                     5     4     9               124.06347
+   49 Bend                     5    10    17               106.97011
+   50 Bend                     5    10    18               106.97011
+   51 Bend                     6    11    13               128.53136
+   52 Bend                     6    19    20               128.53136
+   53 Bend                     7    12    14               128.53136
+   54 Bend                     7    20    19               128.53136
+   55 Bend                     8    13    11               128.53136
+   56 Bend                     8    15    17               128.53136
+   57 Bend                     9    14    12               128.53136
+   58 Bend                     9    16    18               128.53136
+   59 Bend                    10    17    15               128.53136
+   60 Bend                    10    18    16               128.53136
+   61 Bend                    11     6    19               144.42235
+   62 Bend                    12     7    20               144.42235
+   63 Bend                    13     8    15               144.42235
+   64 Bend                    14     9    16               144.42235
+   65 Bend                    17    10    18               144.42235
+   66 Torsion                  1     2     4     5           0.00000
+   67 Torsion                  1     2     4     9        -158.52875
+   68 Torsion                  1     2     7    12         162.16084
+   69 Torsion                  1     2     7    20          -7.00945
+   70 Torsion                  1     3     5     4           0.00000
+   71 Torsion                  1     3     5    10         158.52875
+   72 Torsion                  1     3     8    13           7.00945
+   73 Torsion                  1     3     8    15        -162.16084
+   74 Torsion                  1     6    11    13           7.42524
+   75 Torsion                  1     6    19    20          -7.42524
+   76 Torsion                  2     1     3     5          -0.00000
+   77 Torsion                  2     1     3     8         158.52875
+   78 Torsion                  2     1     6    11        -162.16084
+   79 Torsion                  2     1     6    19           7.00945
+   80 Torsion                  2     4     5     3           0.00000
+   81 Torsion                  2     4     5    10        -158.52875
+   82 Torsion                  2     4     9    14          -7.00945
+   83 Torsion                  2     4     9    16         162.16084
+   84 Torsion                  2     7    12    14          -7.42524
+   85 Torsion                  2     7    20    19           7.42524
+   86 Torsion                  3     1     2     4           0.00000
+   87 Torsion                  3     1     2     7        -158.52875
+   88 Torsion                  3     1     6    11          -7.00945
+   89 Torsion                  3     1     6    19         162.16084
+   90 Torsion                  3     5     4     9         158.52875
+   91 Torsion                  3     5    10    17           7.00945
+   92 Torsion                  3     5    10    18        -162.16084
+   93 Torsion                  3     8    13    11          -7.42524
+   94 Torsion                  3     8    15    17           7.42524
+   95 Torsion                  4     2     1     6         158.52875
+   96 Torsion                  4     2     7    12           7.00945
+   97 Torsion                  4     2     7    20        -162.16084
+   98 Torsion                  4     5     3     8        -158.52875
+   99 Torsion                  4     5    10    17         162.16084
+  100 Torsion                  4     5    10    18          -7.00945
+  101 Torsion                  4     9    14    12           7.42524
+  102 Torsion                  4     9    16    18          -7.42524
+  103 Torsion                  5     3     1     6        -158.52875
+  104 Torsion                  5     3     8    13         162.16084
+  105 Torsion                  5     3     8    15          -7.00945
+  106 Torsion                  5     4     2     7         158.52875
+  107 Torsion                  5     4     9    14        -162.16084
+  108 Torsion                  5     4     9    16           7.00945
+  109 Torsion                  5    10    17    15          -7.42524
+  110 Torsion                  5    10    18    16           7.42524
+  111 Torsion                  6     1     2     7          -0.00000
+  112 Torsion                  6     1     3     8          -0.00000
+  113 Torsion                  6    11    13     8           0.00000
+  114 Torsion                  6    19    20     7           0.00000
+  115 Torsion                  7     2     4     9           0.00000
+  116 Torsion                  7    12    14     9          -0.00000
+  117 Torsion                  8     3     5    10          -0.00000
+  118 Torsion                  8    15    17    10          -0.00000
+  119 Torsion                  9     4     5    10           0.00000
+  120 Torsion                  9    16    18    10           0.00000
+  121 Torsion                 11     6    19    20         154.58288
+  122 Torsion                 11    13     8    15         154.58288
+  123 Torsion                 12     7    20    19        -154.58288
+  124 Torsion                 12    14     9    16        -154.58288
+  125 Torsion                 13     8    15    17        -154.58288
+  126 Torsion                 13    11     6    19        -154.58288
+  127 Torsion                 14     9    16    18         154.58288
+  128 Torsion                 14    12     7    20         154.58288
+  129 Torsion                 15    17    10    18         154.58288
+  130 Torsion                 16    18    10    17        -154.58288
+
+
+            XYZ format geometry
+            -------------------
+    20
+ geometry
+ c                     0.71558652     0.98492035     0.44259713
+ c                    -0.71558652     0.98492035     0.44259713
+ c                     1.15784332    -0.37620610     0.44259713
+ c                    -1.15784332    -0.37620610     0.44259713
+ c                     0.00000000    -1.21742851     0.44259713
+ c                     1.49915775     2.06341363     0.01839224
+ c                    -1.49915775     2.06341363     0.01839224
+ c                     2.42568820    -0.78815388     0.01839224
+ c                    -2.42568820    -0.78815388     0.01839224
+ c                     0.00000000    -2.55051951     0.01839224
+ c                     2.80801257     1.55453365    -0.23049468
+ c                    -2.80801257     1.55453365    -0.23049468
+ c                     3.18546184     0.39286424    -0.23049468
+ c                    -3.18546184     0.39286424    -0.23049468
+ c                     2.34617296    -2.19020134    -0.23049468
+ c                    -2.34617296    -2.19020134    -0.23049468
+ c                     1.35799793    -2.90815252    -0.23049468
+ c                    -1.35799793    -2.90815252    -0.23049468
+ c                     0.61072575     3.15095597    -0.23049468
+ c                    -0.61072575     3.15095597    -0.23049468
+
+ ==============================================================================
+                                internuclear distances
+ ------------------------------------------------------------------------------
+       center one      |      center two      | atomic units |       a.u.
+ ------------------------------------------------------------------------------
+    2 c                |   1 c                |     2.70452  |     2.70452
+    3 c                |   1 c                |     2.70452  |     2.70452
+    4 c                |   2 c                |     2.70452  |     2.70452
+    5 c                |   3 c                |     2.70452  |     2.70452
+    5 c                |   4 c                |     2.70452  |     2.70452
+    6 c                |   1 c                |     2.64365  |     2.64365
+    7 c                |   2 c                |     2.64365  |     2.64365
+    8 c                |   3 c                |     2.64365  |     2.64365
+    9 c                |   4 c                |     2.64365  |     2.64365
+   10 c                |   5 c                |     2.64365  |     2.64365
+   11 c                |   6 c                |     2.69510  |     2.69510
+   12 c                |   7 c                |     2.69510  |     2.69510
+   13 c                |   8 c                |     2.69510  |     2.69510
+   13 c                |  11 c                |     2.30821  |     2.30821
+   14 c                |   9 c                |     2.69510  |     2.69510
+   14 c                |  12 c                |     2.30821  |     2.30821
+   15 c                |   8 c                |     2.69510  |     2.69510
+   16 c                |   9 c                |     2.69510  |     2.69510
+   17 c                |  10 c                |     2.69510  |     2.69510
+   17 c                |  15 c                |     2.30821  |     2.30821
+   18 c                |  10 c                |     2.69510  |     2.69510
+   18 c                |  16 c                |     2.30821  |     2.30821
+   19 c                |   6 c                |     2.69510  |     2.69510
+   20 c                |   7 c                |     2.69510  |     2.69510
+   20 c                |  19 c                |     2.30821  |     2.30821
+ ------------------------------------------------------------------------------
+                         number of included internuclear distances:         25
+ ==============================================================================
+
+
+
+ ==============================================================================
+                                 internuclear angles
+ ------------------------------------------------------------------------------
+        center 1       |       center 2       |       center 3       |  degrees
+ ------------------------------------------------------------------------------
+    2 c                |   1 c                |   3 c                |   108.00
+    2 c                |   1 c                |   6 c                |   124.06
+    3 c                |   1 c                |   6 c                |   124.06
+    1 c                |   2 c                |   4 c                |   108.00
+    1 c                |   2 c                |   7 c                |   124.06
+    4 c                |   2 c                |   7 c                |   124.06
+    1 c                |   3 c                |   5 c                |   108.00
+    1 c                |   3 c                |   8 c                |   124.06
+    5 c                |   3 c                |   8 c                |   124.06
+    2 c                |   4 c                |   5 c                |   108.00
+    2 c                |   4 c                |   9 c                |   124.06
+    5 c                |   4 c                |   9 c                |   124.06
+    3 c                |   5 c                |   4 c                |   108.00
+    3 c                |   5 c                |  10 c                |   124.06
+    4 c                |   5 c                |  10 c                |   124.06
+    1 c                |   6 c                |  11 c                |   106.97
+    1 c                |   6 c                |  19 c                |   106.97
+   11 c                |   6 c                |  19 c                |   144.42
+    2 c                |   7 c                |  12 c                |   106.97
+    2 c                |   7 c                |  20 c                |   106.97
+   12 c                |   7 c                |  20 c                |   144.42
+    3 c                |   8 c                |  13 c                |   106.97
+    3 c                |   8 c                |  15 c                |   106.97
+   13 c                |   8 c                |  15 c                |   144.42
+    4 c                |   9 c                |  14 c                |   106.97
+    4 c                |   9 c                |  16 c                |   106.97
+   14 c                |   9 c                |  16 c                |   144.42
+    5 c                |  10 c                |  17 c                |   106.97
+    5 c                |  10 c                |  18 c                |   106.97
+   17 c                |  10 c                |  18 c                |   144.42
+    6 c                |  11 c                |  13 c                |   128.53
+    7 c                |  12 c                |  14 c                |   128.53
+    8 c                |  13 c                |  11 c                |   128.53
+    9 c                |  14 c                |  12 c                |   128.53
+    8 c                |  15 c                |  17 c                |   128.53
+    9 c                |  16 c                |  18 c                |   128.53
+   10 c                |  17 c                |  15 c                |   128.53
+   10 c                |  18 c                |  16 c                |   128.53
+    6 c                |  19 c                |  20 c                |   128.53
+    7 c                |  20 c                |  19 c                |   128.53
+ ------------------------------------------------------------------------------
+                            number of included internuclear angles:         40
+ ==============================================================================
+
+
+
+
+
+ Summary of "ao basis" -> "" (spherical)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ *                          cc-pvdz                   on all atoms 
+
+
+                      Basis "ao basis" -> "ao basis" (spherical)
+                      -----
+  c (Carbon)
+  ----------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  6.66500000E+03  0.000692
+  1 S  1.00000000E+03  0.005329
+  1 S  2.28000000E+02  0.027077
+  1 S  6.47100000E+01  0.101718
+  1 S  2.10600000E+01  0.274740
+  1 S  7.49500000E+00  0.448564
+  1 S  2.79700000E+00  0.285074
+  1 S  5.21500000E-01  0.015204
+
+  2 S  6.66500000E+03 -0.000146
+  2 S  1.00000000E+03 -0.001154
+  2 S  2.28000000E+02 -0.005725
+  2 S  6.47100000E+01 -0.023312
+  2 S  2.10600000E+01 -0.063955
+  2 S  7.49500000E+00 -0.149981
+  2 S  2.79700000E+00 -0.127262
+  2 S  5.21500000E-01  0.544529
+
+  3 S  1.59600000E-01  1.000000
+
+  4 P  9.43900000E+00  0.038109
+  4 P  2.00200000E+00  0.209480
+  4 P  5.45600000E-01  0.508557
+
+  5 P  1.51700000E-01  1.000000
+
+  6 D  5.50000000E-01  1.000000
+
+
+
+ Summary of "ao basis" -> "ao basis" (spherical)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ c                          cc-pvdz                  6       14   3s2p1d
+
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                         C20 bowl RHF cc-pVDZ calibration
+
+
+
+  ao basis        = "ao basis"
+  functions       =   280
+  atoms           =    20
+  closed shells   =    60
+  open shells     =     0
+  charge          =   0.00
+  wavefunction    = RHF 
+  input vectors   = atomic
+  output vectors  = ./c20_bowl_scf.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Summary of "ao basis" -> "ao basis" (spherical)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ c                          cc-pvdz                  6       14   3s2p1d
+
+
+
+ Forming initial guess at       1.7s
+
+
+      Superposition of Atomic Density Guess
+      -------------------------------------
+
+ Sum of atomic energies:        -753.32292216
+
+      Non-variational initial energy
+      ------------------------------
+
+ Total energy =    -768.027186
+ 1-e energy   =   -3459.462121
+ 2-e energy   =    1460.800126
+ HOMO         =      -0.249446
+ LUMO         =      -0.102030
+
+
+ Starting SCF solution at      12.5s
+
+
+
+ ----------------------------------------------
+         Quadratically convergent ROHF
+
+ Convergence threshold     :          1.000E-10
+ Maximum no. of iterations :          200
+ Final Fock-matrix accuracy:          1.000E-10
+ ----------------------------------------------
+
+
+              iter       energy          gnorm     gmax       time
+             ----- ------------------- --------- --------- --------
+                 1     -756.4343268365  1.52D+00  2.25D-01     64.8
+                 2     -756.6631406175  6.23D-01  1.03D-01    118.4
+                 3     -756.6976965365  2.33D-01  4.38D-02    172.1
+                 4     -756.7024651979  9.89D-03  1.84D-03    313.2
+                 5     -756.7024865534  6.86D-05  1.02D-05    541.3
+srun: forcing job termination
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-10-24T07:41:18.343] error: *** STEP 60197597.0 ON nid004154 CANCELLED AT 2026-10-24T07:41:18 DUE to SIGNAL Killed ***
+srun: error: nid004154: tasks 0-1: Killed
+srun: Terminating StepId=60197597.0

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/global/u1/m/makhatri/chia-agentic-memscale/scripts/run_workload_calibration.py", line 179, in execute
+    result.update(run_benchmark(self.project, self.directory / trial_id,
+  File "/global/u1/m/makhatri/chia-agentic-memscale/tools/experiment_session.py", line 187, in run_benchmark
+    launch_benchmark(project, directory, image, config, timeout_s, backend, workload)
+  File "/global/u1/m/makhatri/chia-agentic-memscale/tools/experiment_session.py", line 74, in launch_benchmark
+    returncode = child.wait(timeout=timeout_s)
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/global/homes/m/makhatri/.conda/envs/chia-memscale/lib/python3.10/subprocess.py", line 1951, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/global/homes/m/makhatri/.conda/envs/chia-memscale/bin/python', '/global/u1/m/makhatri/chia-agentic-memscale/workload/nwchem_benchmark.py', '--workload', 'nwchem_c20_bowl_cc-pvdz_rhf', '--input', '/global/u1/m/makhatri/chia-agentic-memscale/workload/inputs/c20_bowl_scf.nw', '--image', 'id:60433343d8c7b7d2d308dc7965f479f456670bfc4c8059a3fdde624e862b6d16', '--partitions', '1', '--executors', '1', '--replication', '1', '--batch-size', '1', '--placement', 'single-node', '--mpi-tasks', '2', '--cpus-per-task', '2', '--backend', 'perlmutter', '--scratch-root', '/global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60197597-1792826878888787032/trial-0001/cases', '--output', '/global/u1/m/makhatri/chia-agentic-memscale/results/c20-calibration-60197597-1792826878888787032/trial-0001/measurement.json']' timed out after 600 seconds

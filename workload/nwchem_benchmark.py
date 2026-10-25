@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import concurrent.futures
+import hashlib
 import json
 import math
 import queue
@@ -16,6 +17,36 @@ ENERGY = re.compile(r"Total SCF energy\s*=\s*([-+0-9.EeDd]+)")
 RSS = re.compile(r"MAXRSS_KB=(\d+)")
 REFERENCE = -75.983998
 TOLERANCE = 1e-5
+WATER_WORKLOAD = "nwchem_water_6-31g_scf"
+C20_WORKLOAD = "nwchem_c20_bowl_cc-pvdz_rhf"
+WORKLOADS = {
+    WATER_WORKLOAD: {"input": "water_check.nw", "reference": REFERENCE,
+                     "tolerance": TOLERANCE, "input_sha256": None},
+    C20_WORKLOAD: {"input": "c20_bowl_scf.nw", "reference": -756.702486554389,
+                   "tolerance": 1e-6,
+                   "input_sha256": "5e570e4160ab87ccc31cc82171755cdc2635ce086d17512a77339cc2e5cea4bb"},
+}
+
+
+def workload_definition(name):
+    """Closed scientific references, never supplied by an agent or measurement."""
+    if name not in WORKLOADS:
+        raise ValueError("Unknown scientific workload")
+    return dict(WORKLOADS[name])
+
+
+def verify_workload_input(path, workload):
+    expected = workload_definition(workload)["input_sha256"]
+    if expected and hashlib.sha256(Path(path).read_bytes()).hexdigest() != expected:
+        raise ValueError("Input differs from the frozen scientific workload")
+
+
+def c20_output_complete(output):
+    """Require the expected SCF problem and a normal end, not an energy alone."""
+    return (len(ENERGY.findall(output)) == 1 and all(re.search(pattern, output) for pattern in (
+        r"(?m)^\s*functions\s*=\s*280\s*$", r"(?m)^\s*atoms\s*=\s*20\s*$",
+        r"(?m)^\s*wavefunction\s*=\s*RHF\s*$", r"Final RHF\s+results",
+        r"Total times\s+cpu:\s*[0-9.]+s\s+wall:\s*[0-9.]+s")))
 
 
 def native_cpu_slots(workers, ranks):
@@ -36,11 +67,14 @@ def native_cpu_slots(workers, ranks):
 
 
 def run_case(case_id, partition, replica, args, scratch):
+    workload = getattr(args, "workload", WATER_WORKLOAD)
+    definition = workload_definition(workload)
     directory = Path(tempfile.mkdtemp(
         prefix=f"nwchem-{case_id}-",
         dir=scratch,
     ))
     shutil.copy2(args.input, directory / args.input.name)
+    verify_workload_input(directory / args.input.name, workload)
 
     command = [
         "srun", "--exclusive", "--exact", "--nodes=1",
@@ -61,17 +95,25 @@ def run_case(case_id, partition, replica, args, scratch):
     environment = os.environ.copy()
     if cpu_ids is not None:
         environment.update(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1")
+    output_path = directory / "output.txt"
     start = time.perf_counter()
     try:
-        result = subprocess.run(command, cwd=directory, capture_output=True,
-                                text=True, env=environment)
+        (directory / "launch.json").write_text(json.dumps({
+            "case_id": case_id, "command": command,
+            "started_time_ns": time.time_ns(), "output_file": str(output_path),
+        }, indent=2) + "\n")
+        # Direct child file descriptors preserve emitted bytes if the harness
+        # is killed. PIPE/capture_output loses its in-memory buffer on timeout.
+        # NWChem/MPI may still buffer bytes that have not yet been emitted.
+        with output_path.open("wb", buffering=0) as stream:
+            result = subprocess.run(command, cwd=directory, stdout=stream,
+                                    stderr=subprocess.STDOUT, env=environment)
     finally:
         if cpu_ids is not None:
             args.cpu_slots.put(cpu_ids)
     latency_ms = (time.perf_counter() - start) * 1000
 
-    output = (result.stdout or "") + "\n" + (result.stderr or "")
-    (directory / "output.txt").write_text(output)
+    output = output_path.read_text(errors="replace")
 
     energies = ENERGY.findall(output)
     energy = None
@@ -85,7 +127,8 @@ def run_case(case_id, partition, replica, args, scratch):
         result.returncode == 0
         and energy is not None
         and math.isfinite(energy)
-        and abs(energy - REFERENCE) < TOLERANCE
+        and abs(energy - definition["reference"]) < definition["tolerance"]
+        and (workload != C20_WORKLOAD or c20_output_complete(output))
     )
 
     return {
@@ -106,6 +149,7 @@ def run_case(case_id, partition, replica, args, scratch):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, required=True)
+    parser.add_argument("--workload", choices=tuple(WORKLOADS), default=WATER_WORKLOAD)
     parser.add_argument("--image", default="unused-native")
     parser.add_argument("--backend", choices=("perlmutter", "native"), default="perlmutter")
     parser.add_argument("--nwchem", default="/usr/bin/nwchem.openmpi")
@@ -123,6 +167,11 @@ def main():
     args.input = args.input.resolve()
     if not args.input.exists():
         parser.error(f"Missing input: {args.input}")
+    definition = workload_definition(args.workload)
+    try:
+        verify_workload_input(args.input, args.workload)
+    except ValueError as exc:
+        parser.error(str(exc))
 
     if min(args.partitions, args.replication, args.executors, args.batch_size,
            args.mpi_tasks, args.cpus_per_task) < 1:
@@ -168,7 +217,7 @@ def main():
 
     record = {
         "backend": args.backend,
-        "workload": "nwchem_water_6-31g_scf",
+        "workload": args.workload,
         "configuration": {
             "partitions": args.partitions,
             "executors": args.executors,
@@ -191,8 +240,8 @@ def main():
             if memories else None,
         },
         "scientific_validation": {
-            "reference_energy_hartree": REFERENCE,
-            "tolerance_hartree": TOLERANCE,
+            "reference_energy_hartree": definition["reference"],
+            "tolerance_hartree": definition["tolerance"],
         },
         "cases": results,
     }

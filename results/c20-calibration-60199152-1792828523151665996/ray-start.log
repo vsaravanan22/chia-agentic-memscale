@@ -1,0 +1,19 @@
+2026-10-24 00:56:35,232	INFO usage_lib.py:447 -- Usage stats collection is disabled.
+2026-10-24 00:56:35,241	INFO scripts.py:936 -- [37mLocal node IP[39m: [1m128.55.72.103[22m
+2026-10-24 00:57:18,017	SUCC scripts.py:975 -- [32m--------------------[39m
+2026-10-24 00:57:18,017	SUCC scripts.py:976 -- [32mRay runtime started.[39m
+2026-10-24 00:57:18,018	SUCC scripts.py:977 -- [32m--------------------[39m
+2026-10-24 00:57:18,018	INFO scripts.py:979 -- [36mNext steps[39m
+2026-10-24 00:57:18,019	INFO scripts.py:982 -- To add another node to this Ray cluster, run
+2026-10-24 00:57:18,019	INFO scripts.py:985 -- [1m  ray start --address='128.55.72.103:56503'[22m
+2026-10-24 00:57:18,020	INFO scripts.py:996 -- To connect to this Ray cluster:
+2026-10-24 00:57:18,020	INFO scripts.py:998 -- [35mimport[39m[26m ray
+2026-10-24 00:57:18,021	INFO scripts.py:999 -- ray[35m.[39m[26minit(_node_ip_address[35m=[39m[26m[33m'128.55.72.103'[39m[26m)
+2026-10-24 00:57:18,021	INFO scripts.py:1032 -- To terminate the Ray runtime, run
+2026-10-24 00:57:18,022	INFO scripts.py:1033 -- [1m  ray stop[22m
+2026-10-24 00:57:18,022	INFO scripts.py:1036 -- To view the status of the cluster, use
+2026-10-24 00:57:18,023	INFO scripts.py:1037 --   [1mray status[22m[26m
+2026-10-24 00:57:18,024	INFO scripts.py:1155 -- [36m[1m--block[22m[39m
+2026-10-24 00:57:18,024	INFO scripts.py:1156 -- This command will now block forever until terminated by a signal.
+2026-10-24 00:57:18,025	INFO scripts.py:1159 -- Running subprocesses are monitored and a message will be printed if any of them terminate unexpectedly. Subprocesses exit with SIGTERM will be treated as graceful, thus NOT reported.
+2026-10-24 00:57:18,025	INFO scripts.py:1164 -- Process exit logs will be saved to: [1m/tmp/chia-ray-jlbb47ex/session_2026-10-24_00-56-35_250193_951129/logs/ray_process_exit.log[22m[26m
